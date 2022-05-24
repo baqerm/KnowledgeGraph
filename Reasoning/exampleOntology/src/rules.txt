@@ -1,0 +1,9 @@
+@prefix rr:    <http://www.w3.org/ns/r2rml#> .
+@prefix :      <http://qlRDF.com/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+
+[r1: (?s1 :phoneNumber ?c) (?s2 :phoneNumber ?c) -> (?s1 :hasSamePhone ?s2)]
+[r2: (?s1 :Addr ?c) (?s2 :Addr ?c) (?s1 :LName ?n) (?s2 :LName ?n)  -> (?s1 :hasDupLN ?s2)]                  
