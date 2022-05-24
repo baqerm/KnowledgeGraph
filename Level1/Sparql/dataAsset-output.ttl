@@ -1,0 +1,340 @@
+<http://qlRDF.com/DOMAIN/DomainIdentifier_1>
+        a                             <http://qlRDF.com/domain> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "DomainPercisionQuantity_num" , "DomainValueFlag_flag" , "DomainAcronymName_str" , "DomainName_str" , "DomainScaleQuantity_num" , "DomainDataTypeName_str" , "DomainDescription_str" , "DomainRangeMinimumValue_int" , "DomainNameMaximumValue_int" , "DomainBusinessDefinition_txt" , "DomainDependentElement_str" ;
+        <http://qlRDF.com/hasValues>  <http://qlRDF.com/DomainValue/DomainIdentifier_1> .
+
+<http://qlRDF.com/Server/ServerURL_1>
+        a       <http://qlRDF.com/System> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "ServerName_str" , "ServerDescription_txt" ;
+        <http://qlRDF.com/hasDataGroupSystem>
+                <http://qlRDF.com/DataGroupSystem/DataGroupSystemIdentifier_1> .
+
+<http://qlRDF.com/BusinessRuleExpression/BusinessRuleIdentifier_1>
+        a       <http://qlRDF.com/BusinessRule> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "ExpressionIdentifier_1" ;
+        <http://qlRDF.com/hasBusinessRule>
+                <http://qlRDF.com/BusinessRule/BusinessRuleIdentifier_1> .
+
+<http://qlRDF.com/Development/SystemDataGroupEnvironmentIdentifier_1>
+        a       <http://qlRDF.com/System> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "SystemDataGroupEnvironmentName_str" ;
+        <http://qlRDF.com/hasDataGroupEnvironment>
+                <http://qlRDF.com/SystemDataGroupEnvironment/SystemDataGroupEnvironmentIdentifier_1> ;
+        <http://qlRDF.com/hasDataSteward>
+                <http://qlRDF.com/DataSteward/CommonID_1> .
+
+<http://qlRDF.com/Deployment/ApplicationID_1>
+        a       <http://qlRDF.com/CodeRepository> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "GitURL_txt" , "GitVersion_num" , "DeploymentStartDate_date" , "DeploymentEndDate_date" .
+
+<http://qlRDF.com/DataEntity/DataEntityIdentifier_1>
+        a       <http://qlRDF.com/DataEntity> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "LogicalDataEntityIdentifier_1" , "DataEntityAttributeIdentifier_1" , "DataGroupIdentifier_1" , "DataEntityDescription_txt" , "DataEntityName_str" ;
+        <http://qlRDF.com/hasDataElement>
+                <http://qlRDF.com/DataElement/DataAttributeIdentifier_1> .
+
+<http://qlRDF.com/XMLDataGroupType/DataGroupIdentifier_1>
+        a                               <http://qlRDF.com/XMLDataGroupType> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "LogicalDataEntityIdentifier_1" , "DataEntityAttributeIdentifier_1" ;
+        <http://qlRDF.com/isElementOf>  <http://qlRDF.com/DATAGROUP/DataGroupIdentifier_1> .
+
+<http://qlRDF.com/ExpressionNode/ExpressionIdentifier_1>
+        a       <http://qlRDF.com/BusinessRule> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "ValueType_str" , "ExpressionType_str" ;
+        <http://qlRDF.com/hasBusinessRuleExpression>
+                <http://qlRDF.com/BusinessRuleExpression/BusinessRuleIdentifier_1> .
+
+<http://qlRDF.com/BusinessRuleAssociation/BusinessRuleIdentifier_1>
+        a       <http://qlRDF.com/BusinessRule> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "BusinessRuleRelationshipTypeCode_1" , "RelatedBusinessIdentifier_1" .
+
+<http://qlRDF.com/BusinessRuleCategory/BusinessRuleCategoryCode_1>
+        a       <http://qlRDF.com/BusinessRule> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "BusinessRuleCategoryReasonCode_1" ;
+        <http://qlRDF.com/hasBusinessRule>
+                <http://qlRDF.com/BusinessRule/BusinessRuleIdentifier_1> .
+
+<http://qlRDF.com/Push/HalBuildID_1>
+        a       <http://qlRDF.com/CodeRepository> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "CodeRepositoryLocation_1" .
+
+<http://qlRDF.com/DataGroupStorage/URL_1>
+        a       <http://qlRDF.com/System> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "StorageType_str" ;
+        <http://qlRDF.com/hasDataGroupSystem>
+                <http://qlRDF.com/DataGroupSystem/DataGroupSystemIdentifier_1> .
+
+<http://qlRDF.com/NotificationGroupAssignment/NotificationGroupIdentifier_1>
+        a       <http://qlRDF.com/DataQuality> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "CommonID_1" .
+
+<http://qlRDF.com/GitCommit/CodeRepositoryLocation_1>
+        a                            <http://qlRDF.com/CodeRepository> ;
+        <http://qlRDF.com/goes2Hal>  <http://qlRDF.com/Hal/HalBuildID_1> .
+
+<http://qlRDF.com/ETLApplication/ApplicationID_1>
+        a       <http://qlRDF.com/Application> .
+
+<http://qlRDF.com/DataQualityRuleLocation/CodeRepositoryLocation_1>
+        a       <http://qlRDF.com/DataQuality> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "DataQualityMetricIdentifier_1" , "BusinessRuleIdentifier_1" , "DataQualityRuleFileName_str" ;
+        <http://qlRDF.com/hasBusinessRuleDataElement>
+                <http://qlRDF.com/MiscBusinessRuleDataElement/BusinessRuleIdentifier_1> .
+
+<http://qlRDF.com/MiscBusinessRule/BusinessRuleIdentifier_1>
+        a       <http://qlRDF.com/BusinessRule> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "MiscBusinessRuleText_txt" ;
+        <http://qlRDF.com/hasBusinessRuleDataElement>
+                <http://qlRDF.com/MiscBusinessRuleDataElement/BusinessRuleIdentifier_1> ;
+        <http://qlRDF.com/hasBusinessRuleTerm>
+                <http://qlRDF.com/BusinessRuleTerm/BusinessRuleIdentifier_1> .
+
+<http://qlRDF.com/BusinessRuleType/BusinessRuleTypeCode_1>
+        a       <http://qlRDF.com/BusinessRule> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "BusinessRuleTypeDescription_txt" ;
+        <http://qlRDF.com/hasBusinessRule>
+                <http://qlRDF.com/BusinessRule/BusinessRuleIdentifier_1> .
+
+<http://qlRDF.com/MiscBusinessRuleTerm/BusinessRuleIdentifier_1>
+        a       <http://qlRDF.com/BusinessRule> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "TermBusinessRuleIdentifier_1" .
+
+<http://qlRDF.com/LogicalDataEntity/LogicalDataEntityIdentifier_1>
+        a       <http://qlRDF.com/LogicalDataEntity> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "DataConceptIdentifier_1" , "DataConceptEntityIdentifier_1" , "DataEntityName_str" , "DataEntityDescription_str" ;
+        <http://qlRDF.com/hasAttributes>
+                <http://qlRDF.com/LogicalDataEntityAttribute/LogicalDataEntityIdentifier_1> ;
+        <http://qlRDF.com/hasDataQualityMetrics>
+                <http://qlRDF.com/DataQualityMetric/DataQualityMetricIdentifier_1> .
+
+<http://qlRDF.com/BusinessRuleIssue/BusinessRuleIdentifier_1>
+        a       <http://qlRDF.com/BusinessRule> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "BusinessRuleIssueText_txt" , "BusinessRuleIssuePriority_txt" , "BusinessRuleIssueResolutionText_txt" , "BusinessRuleIssueStatusCode_1" .
+
+<http://qlRDF.com/DataSteward/CommonID_1>
+        a       <http://qlRDF.com/DataSteward> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "TeamMemberName_str" ;
+        <http://qlRDF.com/hasNotificationAssignment>
+                <http://qlRDF.com/NotificationGroupAssignment/NotificationGroupIdentifier_1> .
+
+<http://qlRDF.com/DataGroupSystem/DataGroupSystemIdentifier_1>
+        a                             <http://qlRDF.com/System> ;
+        <http://qlRDF.com/hasApplication>
+                <http://qlRDF.com/Application/ApplicationID_1> ;
+        <http://qlRDF.com/hasDataEnvironment>
+                <http://qlRDF.com/SystemDataGroupEnvironment/SystemDataGroupEnvironmentIdentifier_1> ;
+        <http://qlRDF.com/hasDataGroupStorage>
+                <http://qlRDF.com/DataGroupStorage/URL_1> ;
+        <http://qlRDF.com/hasServer>  <http://qlRDF.com/Server/ServerURL_1> .
+
+<http://qlRDF.com/DATAGROUP/DataGroupIdentifier_1>
+        a       <http://qlRDF.com/DataGroup> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "DataEntityAttributeIdentifier_1" , "LogicalDataEntityIdentifier_1" , "DataGroupName_str" ;
+        <http://qlRDF.com/hasDataGroupSystem>
+                <http://qlRDF.com/DataGroupSystem/DataGroupSystemIdentifier_1> ;
+        <http://qlRDF.com/hasDataQualityMetrics>
+                <http://qlRDF.com/DataQualityMetric/DataQualityMetricIdentifier_1> ;
+        <http://qlRDF.com/hasSchemaRepo>
+                <http://qlRDF.com/SchemaRepo/SchemaRepositoryIdentifier_1> .
+
+<http://qlRDF.com/SystemDataGroupEnvironment/SystemDataGroupEnvironmentIdentifier_1>
+        a       <http://qlRDF.com/System> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "SystemDataGroupEnvironmentName_str" , "SystemDataGroupEnvironmentDescription_txt" ;
+        <http://qlRDF.com/hasDataGroupSystem>
+                <http://qlRDF.com/DataGroupSystem/DataGroupSystemIdentifier_1> .
+
+<http://qlRDF.com/BusinessRule/BusinessRuleIdentifier_1>
+        a       <http://qlRDF.com/BusinessRule> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "BusinessRuleStatusCode_1" , "BusinessRuleCategory_str" , "BusinessRuleCategoryCode_1" , "BusinessRuleEffectiveDate_date" ;
+        <http://qlRDF.com/hasBusinessRuleAssociation>
+                <http://qlRDF.com/BusinessRuleAssociation/BusinessRuleIdentifier_1> ;
+        <http://qlRDF.com/hasBusinessRuleIssue>
+                <http://qlRDF.com/BusinessRuleIssue/BusinessRuleIdentifier_1> ;
+        <http://qlRDF.com/hasDataQualityMetrics>
+                <http://qlRDF.com/DataQualityMetric/DataQualityMetricIdentifier_1> .
+
+<http://qlRDF.com/DataElement/DataAttributeIdentifier_1>
+        a       <http://qlRDF.com/DataElement> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "LogicalDataEntityIdentifier_1" , "DataEntityAttributeIdentifier_1" , "DataGroupIdentifier_1" , "DataEntityIdentifier_1" , "DataAttributeName_str" , "DataAttributeDescription_txt" .
+
+<http://qlRDF.com/BusinessRuleStatus/BusinessRuleStatusCode_1>
+        a       <http://qlRDF.com/BusinessRule> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "BusinessRuleStatusDescription_txt" ;
+        <http://qlRDF.com/hasBusinessRule>
+                <http://qlRDF.com/BusinessRule/BusinessRuleIdentifier_1> .
+
+<http://qlRDF.com/Application/ApplicationID_1>
+        a                               <http://qlRDF.com/Application> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "ApplicationStatus_str" , "ApplicationDescription_str" , "ServiceCategory_str" ;
+        <http://qlRDF.com/hasCodeRepo>  <http://qlRDF.com/CodeRepository/CodeRepositoryLocation_1> ;
+        <http://qlRDF.com/hasDataGroupSystem>
+                <http://qlRDF.com/DataGroupSystem/DataGroupSystemIdentifier_1> ;
+        <http://qlRDF.com/hasDeployment>
+                <http://qlRDF.com/Deployment/ApplicationID_1> ;
+        <http://qlRDF.com/hasETLApplication>
+                <http://qlRDF.com/ETLApplication/ApplicationID_1> ;
+        <http://qlRDF.com/hasProductApplication>
+                <http://qlRDF.com/ProductApplication/ApplicationID_1> .
+
+<http://qlRDF.com/BusinessRuleTerm/BusinessRuleIdentifier_1>
+        a       <http://qlRDF.com/BusinessRule> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "BusinessRuleTermName_str" ;
+        <http://qlRDF.com/hasBusinessRule>
+                <http://qlRDF.com/BusinessRule/BusinessRuleIdentifier_1> ;
+        <http://qlRDF.com/hasBusinessRuleDataElement>
+                <http://qlRDF.com/MiscBusinessRuleTerm/BusinessRuleIdentifier_1> .
+
+<http://qlRDF.com/Production/SystemDataGroupEnvironmentIdentifier_1>
+        a       <http://qlRDF.com/System> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "SystemDataGroupEnvironmentName_str" ;
+        <http://qlRDF.com/hasDataGroupEnvironment>
+                <http://qlRDF.com/SystemDataGroupEnvironment/SystemDataGroupEnvironmentIdentifier_1> .
+
+<http://qlRDF.com/ProductApplication/ApplicationID_1>
+        a       <http://qlRDF.com/Application> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Endpoint_txt" .
+
+<http://qlRDF.com/DATACONCEPT/DataConceptIdentifier_1>
+        a                               <http://qlRDF.com/dataConcept> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "DataConceptName_str" , "DataConceptType_str" , "DataConceptOwner_str" , "DataConceptVersion_int" ;
+        <http://qlRDF.com/hasEntities>  <http://qlRDF.com/DATACONCEPTENTITY/DataConceptEntityIdentifier_1> .
+
+<http://qlRDF.com/Hal/HalBuildID_1>
+        a                             <http://qlRDF.com/CodeRepository> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "CodeRepositoryLocation_1" ;
+        <http://qlRDF.com/needsPush>  <http://qlRDF.com/Push/HalBuildID_1> .
+
+<http://qlRDF.com/BusinessRuleRelationshipType/BusinessRuleRelationshipTypeCode_1>
+        a       <http://qlRDF.com/BusinessRule> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "BusinessRuleRelationshipTypeDescription_txt" ;
+        <http://qlRDF.com/hasDataRuleAssociation>
+                <http://qlRDF.com/BusinessRuleAssociation/BusinessRuleIdentifier_1> .
+
+<http://qlRDF.com/DATACONCEPTENTITY/DataConceptEntityIdentifier_1>
+        a       <http://qlRDF.com/dataConceptEntity> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "DataConceptIdentifier_1" , "DataConceptEntity_txt"^^<http://www.w3.org/2001/XMLSchema#int> , "DataConceptEntityDescription_txt" ;
+        <http://qlRDF.com/hasLogicalDataEntities>
+                <http://qlRDF.com/LogicalDataEntity/LogicalDataEntityIdentifier_1> .
+
+<http://qlRDF.com/BusinessRuleCategoryReason/BusinessRuleCategoryReasonCode_1>
+        a       <http://qlRDF.com/BusinessRule> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "BusinessRuleCategoryReasonDescription_txt" ;
+        <http://qlRDF.com/hasBusinessRule>
+                <http://qlRDF.com/BusinessRuleCategory/BusinessRuleCategoryCode_1> .
+
+<http://qlRDF.com/DataQualityMeasurement/DataQualityLevelCode_1>
+        a       <http://qlRDF.com/DataQuality> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "DataQualityMetricIdentifier_1" , "BusinessRuleIdentifier_1" , "MeasurementValueQuality_num" ;
+        <http://qlRDF.com/hasQualityLevel>
+                <http://qlRDF.com/DataQualityLevel/DataQualityLevelCode_1> .
+
+<http://qlRDF.com/DataQualityLevel/DataQualityLevelCode_1>
+        a       <http://qlRDF.com/DataQuality> ;
+        <http://qlRDF.com/hasQualityMETRIC>
+                <http://qlRDF.com/DataQualityMetric/DataQualityMetricIdentifier_1> .
+
+<http://qlRDF.com/MiscBusinessRuleDataElement/BusinessRuleIdentifier_1>
+        a       <http://qlRDF.com/BusinessRule> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "DataEntityAttributeIdentifier_1" , "LogicalDataEntityIdentifier_1" .
+
+<http://qlRDF.com/LogicalDataEntityAttribute/LogicalDataEntityIdentifier_1>
+        a                             <http://qlRDF.com/LogicalDataEntityAttributes> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "DomainIdentifier_1" , "DataEntityAttributeIdentifier_1" , "DataEntityAttributeName_str" ;
+        <http://qlRDF.com/hasBusinessRuleDataElement>
+                <http://qlRDF.com/MiscBusinessRuleDataElement/BusinessRuleIdentifier_1> ;
+        <http://qlRDF.com/hasDataGroup>
+                <http://qlRDF.com/DATAGROUP/DataGroupIdentifier_1> ;
+        <http://qlRDF.com/hasDataQualityMetrics>
+                <http://qlRDF.com/DataQualityMetric/DataQualityMetricIdentifier_1> ;
+        <http://qlRDF.com/hasDomain>  <http://qlRDF.com/DOMAIN/DomainIdentifier_1> .
+
+<http://qlRDF.com/SchemaRepo/SchemaRepositoryIdentifier_1>
+        a       <http://qlRDF.com/SchemaRepo> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "SchemaType_txt" , "LocationURL_url" , "LogicalDataEntityIdentifier_1" , "DataGroupIdentifier_1" , "DataEntityAttributeIdentifier_1" .
+
+<http://qlRDF.com/NotificationGroup/NotificationGroupIdentifier_1>
+        a       <http://qlRDF.com/DataQuality> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "NotificationGroupName_str" ;
+        <http://qlRDF.com/hasNotificationAssignment>
+                <http://qlRDF.com/NotificationGroupAssignment/NotificationGroupIdentifier_1> ;
+        <http://qlRDF.com/hasQualityMetric>
+                <http://qlRDF.com/DataQualityMetric/DataQualityMetricIdentifier_1> .
+
+<http://qlRDF.com/CodeRepository/CodeRepositoryLocation_1>
+        a       <http://qlRDF.com/CodeRepository> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Organization_str" , "Description_txt" ;
+        <http://qlRDF.com/hasDataQualityRuleLocation>
+                <http://qlRDF.com/DataQualityRuleLocation/CodeRepositoryLocation_1> ;
+        <http://qlRDF.com/hasGitCommit>
+                <http://qlRDF.com/GitCommit/CodeRepositoryLocation_1> .
+
+<http://qlRDF.com/JSONDataGroupType/DataGroupIdentifier_1>
+        a                               <http://qlRDF.com/JSONDataGroupType> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "LogicalDataEntityIdentifier_1" , "DataEntityAttributeIdentifier_1" ;
+        <http://qlRDF.com/isElementOf>  <http://qlRDF.com/DATAGROUP/DataGroupIdentifier_1> .
+
+<http://qlRDF.com/RelationalDataGroupType/DataGroupIdentifier_1>
+        a                               <http://qlRDF.com/RelationalDataGroupType> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "LogicalDataEntityIdentifier_1" , "DataEntityAttributeIdentifier_1" ;
+        <http://qlRDF.com/hasDataEntity>
+                <http://qlRDF.com/DataEntity/DataEntityIdentifier_1> ;
+        <http://qlRDF.com/isElementOf>  <http://qlRDF.com/DATAGROUP/DataGroupIdentifier_1> .
+
+<http://qlRDF.com/MeasurementFrequency/MeasurementFrequencyCode_1>
+        a       <http://qlRDF.com/DataQuality> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "MeasurementFrequencyCodeDescription_txt" ;
+        <http://qlRDF.com/hasQualityMetric>
+                <http://qlRDF.com/DataQualityMetric/DataQualityMetricIdentifier_1> .
+
+<http://qlRDF.com/DomainValue/DomainIdentifier_1>
+        a       <http://qlRDF.com/domainValue> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "DataValueDescription_str" , "DataValueDefaultFlag_flag" .
+
+<http://qlRDF.com/DataQualityMetric/DataQualityMetricIdentifier_1>
+        a       <http://qlRDF.com/DataQuality> ;
+        <http://qlRDF.com/hasQualityRuleLocation>
+                <http://qlRDF.com/DataQualityRuleLocation/CodeRepositoryLocation_1> .
