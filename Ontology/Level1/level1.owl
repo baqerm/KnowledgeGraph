@@ -1,0 +1,822 @@
+@prefix : <http://qlRDF.com#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://qlRDF.com> .
+
+<http://qlRDF.com> rdf:type owl:Ontology ;
+                    rdfs:comment "" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://qlRDF.com/hasAddressLine
+<http://qlRDF.com/hasAddressLine> rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :Address ;
+                                  rdfs:range :AddressLine ;
+                                  rdfs:label "hasAddressLine" .
+
+
+###  http://qlRDF.com/hasAdministrativeAreaType
+<http://qlRDF.com/hasAdministrativeAreaType> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :AdministrativeArea ;
+                                             rdfs:range :AdministrativeAreaType ;
+                                             rdfs:label "hasAdministrativeAreaType" .
+
+
+###  http://qlRDF.com/hasAsset
+<http://qlRDF.com/hasAsset> rdf:type owl:ObjectProperty ;
+                            rdfs:domain :PartyAssetRole ;
+                            rdfs:range :Asset ;
+                            rdfs:label "hasAsset" .
+
+
+###  http://qlRDF.com/hasBanker
+<http://qlRDF.com/hasBanker> rdf:type owl:ObjectProperty ;
+                             rdfs:domain :PartyMortgageApplicationRole ;
+                             rdfs:range :Banker ;
+                             rdfs:label "hasBanker" .
+
+
+###  http://qlRDF.com/hasClient
+<http://qlRDF.com/hasClient> rdf:type owl:ObjectProperty ;
+                             rdfs:domain :PersonRole ;
+                             rdfs:range :Client ;
+                             rdfs:label "hasClient" .
+
+
+###  http://qlRDF.com/hasCommonId
+<http://qlRDF.com/hasCommonId> rdf:type owl:ObjectProperty ;
+                               rdfs:domain :Identifier ;
+                               rdfs:range :CommonId ;
+                               rdfs:label "hasCommonId" .
+
+
+###  http://qlRDF.com/hasDualAgent
+<http://qlRDF.com/hasDualAgent> rdf:type owl:ObjectProperty ;
+                                rdfs:domain :RealEstateAgent ;
+                                rdfs:range :DualAgent ;
+                                rdfs:label "hasDualAgent" .
+
+
+###  http://qlRDF.com/hasEmailOptOut
+<http://qlRDF.com/hasEmailOptOut> rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :EmailAddress ;
+                                  rdfs:range :EmailOptOut ;
+                                  rdfs:label "hasEmailOptOut" .
+
+
+###  http://qlRDF.com/hasITIN
+<http://qlRDF.com/hasITIN> rdf:type owl:ObjectProperty ;
+                           rdfs:domain :Identifier ;
+                           rdfs:range :ITIN ;
+                           rdfs:label "hasITIN" .
+
+
+###  http://qlRDF.com/hasIdentifier
+<http://qlRDF.com/hasIdentifier> rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :Party ;
+                                 rdfs:range :Identifier ;
+                                 rdfs:label "hasIdentifier" .
+
+
+###  http://qlRDF.com/hasNMSId
+<http://qlRDF.com/hasNMSId> rdf:type owl:ObjectProperty ;
+                            rdfs:domain :Identifier ;
+                            rdfs:range :NMLSId ;
+                            rdfs:label "hasNMSId" .
+
+
+###  http://qlRDF.com/hasPartyMAppRole
+<http://qlRDF.com/hasPartyMAppRole> rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :Party ,
+                                                :ResidentialMortgageApplication ;
+                                    rdfs:range :PartyMortgageApplicationRole ;
+                                    rdfs:label "hasPartyMAppRole" .
+
+
+###  http://qlRDF.com/hasPerson
+<http://qlRDF.com/hasPerson> rdf:type owl:ObjectProperty ;
+                             rdfs:domain :Party ;
+                             rdfs:range :Person ;
+                             rdfs:label "hasPerson" .
+
+
+###  http://qlRDF.com/hasPersonName
+<http://qlRDF.com/hasPersonName> rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :Name ;
+                                 rdfs:range :PersonName ;
+                                 rdfs:label "hasPersonName" .
+
+
+###  http://qlRDF.com/hasPreferredName
+<http://qlRDF.com/hasPreferredName> rdf:type owl:ObjectProperty ;
+                                    rdfs:domain <http://qlRDF.com/Preference> ;
+                                    rdfs:range :PreferredName ;
+                                    rdfs:label "hasPreferredName" .
+
+
+###  http://qlRDF.com/hasProspect
+<http://qlRDF.com/hasProspect> rdf:type owl:ObjectProperty ;
+                               rdfs:domain :PersonRole ;
+                               rdfs:range :Prospect ;
+                               rdfs:label "hasProspect" .
+
+
+###  http://qlRDF.com/hasRKTId
+<http://qlRDF.com/hasRKTId> rdf:type owl:ObjectProperty ;
+                            rdfs:domain :Identifier ;
+                            rdfs:range :RocketAccountId ;
+                            rdfs:label "hasRKTId" .
+
+
+###  http://qlRDF.com/hasRace
+<http://qlRDF.com/hasRace> rdf:type owl:ObjectProperty ;
+                           rdfs:domain :BiographicInfo ;
+                           rdfs:range :Race ;
+                           rdfs:label "hasRace" .
+
+
+###  http://qlRDF.com/hasRealStateAgent
+<http://qlRDF.com/hasRealStateAgent> rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :Agent ;
+                                     rdfs:range :RealEstateAgent ;
+                                     rdfs:label "hasRealStateAgent" .
+
+
+###  http://qlRDF.com/hasRealStateCompany
+<http://qlRDF.com/hasRealStateCompany> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :OrganizationRole ;
+                                       rdfs:range :RealStateCompany ;
+                                       rdfs:label "hasRealStateCompany" .
+
+
+###  http://qlRDF.com/hasReltioId
+<http://qlRDF.com/hasReltioId> rdf:type owl:ObjectProperty ;
+                               rdfs:domain :Identifier ;
+                               rdfs:range :RealtIoPeresonEntityId ;
+                               rdfs:label "hasReltioId" .
+
+
+###  http://qlRDF.com/hasSSN
+<http://qlRDF.com/hasSSN> rdf:type owl:ObjectProperty ;
+                          rdfs:domain :Identifier ;
+                          rdfs:range :SocialSecurityNumber ;
+                          rdfs:label "hasSSN" .
+
+
+###  http://qlRDF.com/hasSubAdminArea
+<http://qlRDF.com/hasSubAdminArea> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :SubAdmiistrativeAreaType ;
+                                   rdfs:range :SubAdministrativeArea ;
+                                   rdfs:label "hasSubAdminArea" .
+
+
+###  http://qlRDF.com/hasTC
+<http://qlRDF.com/hasTC> rdf:type owl:ObjectProperty ;
+                         rdfs:domain :Agent ;
+                         rdfs:range :TransactionCoordinator ;
+                         rdfs:label "hasTC" .
+
+
+###  http://qlRDF.com/hasTaxConsent
+<http://qlRDF.com/hasTaxConsent> rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :PartyTaxRole ;
+                                 rdfs:range :TaxConsent ;
+                                 rdfs:label "hasTaxConsent" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://qlRDF.com#AddressId
+:AddressId rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Address ,
+                       :AddressLine ,
+                       :AdministrativeArea ,
+                       :AttentionLine ,
+                       :CountyCode ,
+                       :Locality ,
+                       :PostCode ,
+                       :SubAdministrativeArea ;
+           rdfs:range xsd:int ;
+           rdfs:label "AddressId" .
+
+
+###  http://qlRDF.com/AddressLine
+<http://qlRDF.com/AddressLine> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :AddressLine ;
+                               rdfs:range rdfs:Literal .
+
+
+###  http://qlRDF.com/AddressType
+<http://qlRDF.com/AddressType> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :Address ;
+                               rdfs:range rdfs:Literal .
+
+
+###  http://qlRDF.com/AddressUsage
+<http://qlRDF.com/AddressUsage> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :Address ;
+                                rdfs:range rdfs:Literal .
+
+
+###  http://qlRDF.com/AdministrativeAreaName
+<http://qlRDF.com/AdministrativeAreaName> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :AdministrativeArea .
+
+
+###  http://qlRDF.com/AdministrativeAreaType
+<http://qlRDF.com/AdministrativeAreaType> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :AdministrativeArea ,
+                                                      :AdministrativeAreaType .
+
+
+###  http://qlRDF.com/EmailAddress
+<http://qlRDF.com/EmailAddress> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :EmailAddress ,
+                                            :EmailOptOut ,
+                                            :EmailOutIn .
+
+
+###  http://qlRDF.com/EmailUsageType
+<http://qlRDF.com/EmailUsageType> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :EmailAddress .
+
+
+###  http://qlRDF.com/IsParcelDeliverable
+<http://qlRDF.com/IsParcelDeliverable> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :Address ;
+                                       rdfs:range xsd:boolean .
+
+
+###  http://qlRDF.com/IsPostalMaildeliverable
+<http://qlRDF.com/IsPostalMaildeliverable> rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :Address ;
+                                           rdfs:range xsd:boolean .
+
+
+###  http://qlRDF.com/OptInDate
+<http://qlRDF.com/OptInDate> rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :EmailOutIn ;
+                             rdfs:range xsd:dateTime .
+
+
+###  http://qlRDF.com/OptInSourceType
+<http://qlRDF.com/OptInSourceType> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :EmailOutIn .
+
+
+###  http://qlRDF.com/OptOutDate
+<http://qlRDF.com/OptOutDate> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :EmailOptOut ;
+                              rdfs:range xsd:dateTime .
+
+
+###  http://qlRDF.com/OptOutReasonType
+<http://qlRDF.com/OptOutReasonType> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :EmailOptOut .
+
+
+###  http://qlRDF.com/OptOutSourceType
+<http://qlRDF.com/OptOutSourceType> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :EmailOptOut .
+
+
+###  http://qlRDF.com/PartyId
+<http://qlRDF.com/PartyId> rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :EmailAddress ,
+                                       :EmailOptOut ,
+                                       :EmailOutIn .
+
+
+###  http://qlRDF.com/PermanentOptOutReasonType
+<http://qlRDF.com/PermanentOptOutReasonType> rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :Address ;
+                                             rdfs:range rdfs:Literal .
+
+
+###  http://qlRDF.com/PostCode
+<http://qlRDF.com/PostCode> rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :PostCode .
+
+
+###  http://qlRDF.com/PostalPlus4
+<http://qlRDF.com/PostalPlus4> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :PostCode .
+
+
+###  http://qlRDF.com/PreferenceType
+<http://qlRDF.com/PreferenceType> rdf:type owl:DatatypeProperty .
+
+
+###  http://qlRDF.com/PreferredContactTime
+<http://qlRDF.com/PreferredContactTime> rdf:type owl:DatatypeProperty .
+
+
+###  http://qlRDF.com/StateCode
+<http://qlRDF.com/StateCode> rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :AdministrativeArea .
+
+
+###  http://qlRDF.com/SubAdministrativeArea
+<http://qlRDF.com/SubAdministrativeArea> rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :SubAdministrativeArea .
+
+
+###  http://qlRDF.com/SubAdministrativeAreaType
+<http://qlRDF.com/SubAdministrativeAreaType> rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :SubAdmiistrativeAreaType ,
+                                                         :SubAdministrativeArea .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://qlRDF.com#Address
+:Address rdf:type owl:Class ;
+         rdfs:comment "A collection of information used to identify the location of a structure or plot of land, generally using political boundaries and street names as references along with other identifiers such as house or apartment number and postal code."@en .
+
+
+###  http://qlRDF.com#AddressLine
+:AddressLine rdf:type owl:Class ;
+             rdfs:subClassOf :Address ;
+             rdfs:comment "This entity stores the unparsed address in each line."@en .
+
+
+###  http://qlRDF.com#AdministrativeArea
+:AdministrativeArea rdf:type owl:Class ;
+                    rdfs:subClassOf :Address ;
+                    rdfs:comment "Usually State. The top level division in a country such as state, province, island, etc. May be a Military defined region such as AA, AE, or AP."@en .
+
+
+###  http://qlRDF.com#AdministrativeAreaType
+:AdministrativeAreaType rdf:type owl:Class ;
+                        rdfs:subClassOf :AdministrativeArea ;
+                        rdfs:comment "Usually State. The top level division in a country such as state, province, island, etc. May be a Military defined region such as AA, AE, or AP."@en .
+
+
+###  http://qlRDF.com#Agent
+:Agent rdf:type owl:Class ;
+       rdfs:subClassOf :PersonRole ;
+       rdfs:comment "A person who acts on behalf of another person or group."@en .
+
+
+###  http://qlRDF.com#Asset
+:Asset rdf:type owl:Class ;
+       rdfs:subClassOf :PartyAssetRole ;
+       rdfs:comment "A useful or valuable thing, person, or quality."@en .
+
+
+###  http://qlRDF.com#AssetConsent
+:AssetConsent rdf:type owl:Class ;
+              rdfs:subClassOf :PartyAssetRole ;
+              rdfs:comment "Consent given by a person to pull the asset information directly from a bank or other sources"@en .
+
+
+###  http://qlRDF.com#AttentionLine
+:AttentionLine rdf:type owl:Class ;
+               rdfs:subClassOf :Address .
+
+
+###  http://qlRDF.com#Banker
+:Banker rdf:type owl:Class ;
+        rdfs:subClassOf :PersonRole ;
+        rdfs:comment "The financial representative responsible for helping a client decide on the mortgage product and mortgage structure that best suits their goals."@en .
+
+
+###  http://qlRDF.com#BiographicInfo
+:BiographicInfo rdf:type owl:Class ;
+                rdfs:subClassOf :Person ;
+                rdfs:comment "A set of Biographical Information for parties who are persons."@en .
+
+
+###  http://qlRDF.com#BirthInfo
+:BirthInfo rdf:type owl:Class ;
+           rdfs:subClassOf :BiographicInfo ;
+           rdfs:comment "Information defiining the Date of Birth details of a person, such as full location details, address, etc."@en .
+
+
+###  http://qlRDF.com#BuyerAgent
+:BuyerAgent rdf:type owl:Class ;
+            rdfs:subClassOf :MAERealStateAgent .
+
+
+###  http://qlRDF.com#Citizenship
+:Citizenship rdf:type owl:Class ;
+             rdfs:subClassOf :BiographicInfo ;
+             rdfs:comment "The country of which the person is a citizen."@en .
+
+
+###  http://qlRDF.com#Client
+:Client rdf:type owl:Class ;
+        rdfs:subClassOf :PersonRole ;
+        rdfs:comment "A Person or organization that wanted to do or is doing business with QL and Family of Companies. A person or organization that takes out a loan from a bank under an agreement to pay it back later, typically with interest."@en .
+
+
+###  http://qlRDF.com#ClosingPropensity
+:ClosingPropensity rdf:type owl:Class ;
+                   rdfs:subClassOf :Person .
+
+
+###  http://qlRDF.com#CommonId
+:CommonId rdf:type owl:Class ;
+          rdfs:subClassOf :Identifier ;
+          rdfs:comment """CommonID is the Common identifier, used to identify Team Members or Applications. In this usage it is likely to be
+
+the Team Member. It is currently generated/matched using Team member SSN on the CSA system, but generation may change."""@en .
+
+
+###  http://qlRDF.com#CommunicationPreference
+:CommunicationPreference rdf:type owl:Class ;
+                         rdfs:subClassOf <http://qlRDF.com/Preference> ;
+                         rdfs:comment "Represents a collection of attributes that control the communication preferences of a media"@en .
+
+
+###  http://qlRDF.com#CountyCode
+:CountyCode rdf:type owl:Class ;
+            rdfs:subClassOf :Address ;
+            rdfs:comment "Country Code is a short alphabetic or numeric geographical codes developed to represent countries and dependent areas, for use in data processing and communications."@en .
+
+
+###  http://qlRDF.com#Declaration
+:Declaration rdf:type owl:Class ;
+             rdfs:subClassOf :MortgageClient ;
+             rdfs:comment "It contains the category of various questions asked in the Declaration section of the loan application, and the date when the questions got answered by mortgage clients."@en .
+
+
+###  http://qlRDF.com#Demographic
+:Demographic rdf:type owl:Class ;
+             rdfs:subClassOf :Person ;
+             rdfs:comment "Socioeconomic characteristics of a population expressed statistically, such as age, sex, education level, income level, marital status, occupation, religion, birth rate, death rate, average size of a family, average age at marriage. A census is a collection of the demographic factors associated with every member of a population."@en .
+
+
+###  http://qlRDF.com#DualAgent
+:DualAgent rdf:type owl:Class ;
+           rdfs:subClassOf :MAERealStateAgent .
+
+
+###  http://qlRDF.com#EIN
+:EIN rdf:type owl:Class ;
+     rdfs:subClassOf :Identifier ;
+     rdfs:comment "A unique identification number that is assigned to a business entity so that it can easily be identified by the Internal Revenue Service (IRS). It is commonly used by employers for the purpose of reporting taxes."@en .
+
+
+###  http://qlRDF.com#EmailAddress
+:EmailAddress rdf:type owl:Class ;
+              rdfs:subClassOf :Party ;
+              rdfs:comment "A unique identifier for an email account used to send and receive email messages over the Internet."@en .
+
+
+###  http://qlRDF.com#EmailOptOut
+:EmailOptOut rdf:type owl:Class ;
+             rdfs:subClassOf :EmailAddress ;
+             rdfs:comment "The client has chosen to opt out of the option to receive marketing communication with a particular Email address."@en .
+
+
+###  http://qlRDF.com#EmailOutIn
+:EmailOutIn rdf:type owl:Class ;
+            rdfs:subClassOf :EmailAddress ;
+            rdfs:comment "The client has chosen to opt in for the option to receive marketing communication with a particular Email Address."@en .
+
+
+###  http://qlRDF.com#GCId
+:GCId rdf:type owl:Class ;
+      rdfs:subClassOf :Identifier ;
+      rdfs:comment "GCId is the Global Client identifier, as generated by GCID generator for Submission Engine currently. As it currently stands, it is generated by SSN if we have it, otherwise by a function of name and address. There are some pain points around this currently, so the generation system is likely to be changed in the future."@en .
+
+
+###  http://qlRDF.com#Gender
+:Gender rdf:type owl:Class ;
+        rdfs:subClassOf :BiographicInfo ;
+        rdfs:comment "The self identified gender of the individual with reference to social and cultural designations rather than biological ones."@en .
+
+
+###  http://qlRDF.com#ITIN
+:ITIN rdf:type owl:Class ;
+      rdfs:subClassOf :Identifier ;
+      rdfs:comment "An An Individual Taxpayer Identification Number (ITIN) is a United States tax processing number issued to a dependant non resident person of United States of America by the Internal Revenue Service (IRS). It is a 9-digit number, beginning with the number \"9\", formatted like an SSN (NNN-NN-NNNN)."@en .
+
+
+###  http://qlRDF.com#Identifier
+:Identifier rdf:type owl:Class ;
+            rdfs:subClassOf :Party ;
+            rdfs:comment "Identifier to recognize the party such as customer identifier, social security number, National ID Card, tax number, business number, company number, company registration, etc"@en .
+
+
+###  http://qlRDF.com#Income
+:Income rdf:type owl:Class ;
+        rdfs:subClassOf :PartyIncomeRole ;
+        rdfs:comment "Money that an individual or business receives in exchange for providing a good or service, or through investing capital."@en .
+
+
+###  http://qlRDF.com#IncomeConsent
+:IncomeConsent rdf:type owl:Class ;
+               rdfs:subClassOf :PartyIncomeRole ;
+               rdfs:comment "Consent given by a person on a given income."@en .
+
+
+###  http://qlRDF.com#License
+:License rdf:type owl:Class ;
+         rdfs:subClassOf :Qualification ;
+         rdfs:comment "A states grant of legal authority to practice a profession within a designated scope of practice"@en .
+
+
+###  http://qlRDF.com#LoanIdentifier
+:LoanIdentifier rdf:type owl:Class ;
+                rdfs:subClassOf :ResidentialMortgageApplication ;
+                rdfs:comment "A collection of information used to identify the loan by various parties to the transaction or other organizations."@en .
+
+
+###  http://qlRDF.com#LoanProduct
+:LoanProduct rdf:type owl:Class ;
+             rdfs:subClassOf :ResidentialMortgageApplication ;
+             rdfs:comment "A loan product created by a lender and offered to borrowers. It has a specific set of features and costs, which must be disclosed to consumers before they can be bound by its terms. Examples of Loan Product, Fixed Rate, ARM, Jumbo, etc.."@en .
+
+
+###  http://qlRDF.com#Locality
+:Locality rdf:type owl:Class ;
+          rdfs:subClassOf :Address ;
+          rdfs:comment "Usually City, the details of densely populated area or a sub division of Administrative Area. May be military area such as API or FPO."@en .
+
+
+###  http://qlRDF.com#MAEAgent
+:MAEAgent rdf:type owl:Class ;
+          rdfs:subClassOf :PartyMortgageApplicationRole .
+
+
+###  http://qlRDF.com#MAEBanker
+:MAEBanker rdf:type owl:Class ;
+           rdfs:subClassOf :PartyMortgageApplicationRole .
+
+
+###  http://qlRDF.com#MAERealStateAgent
+:MAERealStateAgent rdf:type owl:Class ;
+                   rdfs:subClassOf :MAEAgent .
+
+
+###  http://qlRDF.com#MAETeamMember
+:MAETeamMember rdf:type owl:Class ;
+               rdfs:subClassOf :MortgageClient .
+
+
+###  http://qlRDF.com#MaritalStatus
+:MaritalStatus rdf:type owl:Class ;
+               rdfs:subClassOf :BiographicInfo ;
+               rdfs:comment "A person's state of being single, married, separated, divorced, or widowed."@en .
+
+
+###  http://qlRDF.com#MortgageClient
+:MortgageClient rdf:type owl:Class ;
+                rdfs:subClassOf :PartyMortgageApplicationRole ;
+                rdfs:comment "It includes Borrower and Co-borrower. The Mortgage Client is the person with full responsibility for paying back the loan, while the co-borrower is someone added to the loan often to assist the borrower with approval. The co-borrower takes on the risk that he/she may have to pay the loan if the borrower cannot."@en .
+
+
+###  http://qlRDF.com#NMLSId
+:NMLSId rdf:type owl:Class ;
+        rdfs:subClassOf :Identifier ;
+        rdfs:comment "The NMLS Unique Identifier is the number permanently assigned by the Nationwide Mortgage Licensing System & Registry (NMLS) for each company, branch, and individual that maintains a single account on NMLS."@en .
+
+
+###  http://qlRDF.com#Name
+:Name rdf:type owl:Class ;
+      rdfs:subClassOf :Party ;
+      rdfs:comment "A word or set of words by which a person, organization, place, or thing is known, addressed, or referred to."@en .
+
+
+###  http://qlRDF.com#Organization
+:Organization rdf:type owl:Class ;
+              rdfs:subClassOf :Party ;
+              rdfs:comment "a party that is a unique framework of authority within which a person or persons act, or are designated to act, towards some purpose, such as to meet a need or pursue collective goals on a continuing basis"@en .
+
+
+###  http://qlRDF.com#OrganizationName
+:OrganizationName rdf:type owl:Class ;
+                  rdfs:subClassOf :Name ;
+                  rdfs:comment "A non-personal name that refers to a structured body of one or more persons that exists to perform some common function. Organizations can be businesses, clubs, schools, government agencies, political parties, or World Wide Web manifestations, etc."@en .
+
+
+###  http://qlRDF.com#OrganizationRole
+:OrganizationRole rdf:type owl:Class ;
+                  rdfs:subClassOf :PartyRole ;
+                  rdfs:comment "A name or a description of an organization's job, function, and/or responsibility."@en .
+
+
+###  http://qlRDF.com#Party
+:Party rdf:type owl:Class ;
+       rdfs:comment "A person, organization, or autonomous agent capable of performing any business party role."@en .
+
+
+###  http://qlRDF.com#PartyAssetRole
+:PartyAssetRole rdf:type owl:Class ;
+                rdfs:subClassOf :Party ;
+                rdfs:comment "This entity represents the role played by a party for a given asset."@en .
+
+
+###  http://qlRDF.com#PartyIncomeRole
+:PartyIncomeRole rdf:type owl:Class ;
+                 rdfs:subClassOf :Party ;
+                 rdfs:comment "The relationship type between the party and the income. In some cases, the income might not belong to the party in some respects."@en .
+
+
+###  http://qlRDF.com#PartyMortgageApplicationRole
+:PartyMortgageApplicationRole rdf:type owl:Class ;
+                              rdfs:subClassOf :ResidentialMortgageApplication ;
+                              rdfs:comment "The associated parties related to this mortgage application."@en .
+
+
+###  http://qlRDF.com#PartyRole
+:PartyRole rdf:type owl:Class ;
+           rdfs:subClassOf :Party ;
+           rdfs:comment "The function assumed or part played by a party."@en .
+
+
+###  http://qlRDF.com#PartyTaxRole
+:PartyTaxRole rdf:type owl:Class ;
+              rdfs:subClassOf :Party .
+
+
+###  http://qlRDF.com#PermanentOptOut
+:PermanentOptOut rdf:type owl:Class ;
+                 rdfs:subClassOf <http://qlRDF.com/Preference> .
+
+
+###  http://qlRDF.com#Person
+:Person rdf:type owl:Class ;
+        rdfs:subClassOf :Party ;
+        rdfs:comment "A party that is any member of the species homo sapiens."@en .
+
+
+###  http://qlRDF.com#PersonName
+:PersonName rdf:type owl:Class ;
+            rdfs:subClassOf :Name ;
+            rdfs:comment "An individual's name as recorded on government documentation for legal, administrative, and other official purposes."@en .
+
+
+###  http://qlRDF.com#PersonRole
+:PersonRole rdf:type owl:Class ;
+            rdfs:subClassOf :PartyRole ;
+            rdfs:comment "A role played/perfomed by a Person. E.g. Client, leader, team member."@en .
+
+
+###  http://qlRDF.com#PhoneNumber
+:PhoneNumber rdf:type owl:Class ;
+             rdfs:subClassOf :Party ;
+             rdfs:comment "A string of numbers associated with a telephone or mobile phone."@en .
+
+
+###  http://qlRDF.com#PhoneOptIn
+:PhoneOptIn rdf:type owl:Class ;
+            rdfs:subClassOf :PhoneNumber ;
+            rdfs:comment "The client has chosen to opt in for the option to receive marketing communication with a particular Phone number."@en .
+
+
+###  http://qlRDF.com#PhoneOptOut
+:PhoneOptOut rdf:type owl:Class ;
+             rdfs:subClassOf :PhoneNumber ;
+             rdfs:comment "The client has chosen to opt out of the option to receive marketing communication with a particular phone number."@en .
+
+
+###  http://qlRDF.com#PostCode
+:PostCode rdf:type owl:Class ;
+          rdfs:subClassOf :Address ;
+          rdfs:comment "The enity stores the postal code that corresponds with address."@en .
+
+
+###  http://qlRDF.com#PreferredContactMethod
+:PreferredContactMethod rdf:type owl:Class ;
+                        rdfs:subClassOf <http://qlRDF.com/Preference> .
+
+
+###  http://qlRDF.com#PreferredLanguage
+:PreferredLanguage rdf:type owl:Class ;
+                   rdfs:subClassOf <http://qlRDF.com/Preference> ;
+                   rdfs:comment "The language that a Party feels most comfortable speaking. This may or may not be the language regularly spoken at home."@en .
+
+
+###  http://qlRDF.com#PreferredName
+:PreferredName rdf:type owl:Class ;
+               rdfs:subClassOf <http://qlRDF.com/Preference> .
+
+
+###  http://qlRDF.com#Prospect
+:Prospect rdf:type owl:Class ;
+          rdfs:subClassOf :PersonRole ;
+          rdfs:comment "A person regarded as likely to succeed or as a potential client of Quicken Loans or Family of Companies."@en .
+
+
+###  http://qlRDF.com#Qualification
+:Qualification rdf:type owl:Class ;
+               rdfs:subClassOf :Person ;
+               rdfs:comment "A quality or accomplishment that makes someone suitable for a particular job or activity."@en .
+
+
+###  http://qlRDF.com#Race
+:Race rdf:type owl:Class ;
+      rdfs:subClassOf :BiographicInfo ;
+      rdfs:comment "A group of persons related by common cultural background or heredity."@en .
+
+
+###  http://qlRDF.com#RealEstateAgent
+:RealEstateAgent rdf:type owl:Class ;
+                 rdfs:subClassOf :Agent .
+
+
+###  http://qlRDF.com#RealStateCompany
+:RealStateCompany rdf:type owl:Class ;
+                  rdfs:subClassOf :OrganizationRole ;
+                  rdfs:comment "An individual who is licensed to negotiate and transact the real estate sales including Listing Agent, Selling Broker and Buyer Agent."@en .
+
+
+###  http://qlRDF.com#RealtIoPeresonEntityId
+:RealtIoPeresonEntityId rdf:type owl:Class ;
+                        rdfs:subClassOf :Identifier .
+
+
+###  http://qlRDF.com#ResidentialMortgageApplication
+:ResidentialMortgageApplication rdf:type owl:Class ;
+                                rdfs:subClassOf :Party ;
+                                rdfs:comment "This is a document submitted by one or more individuals applying for a mortgage to purchase residential real estate. It is extensive and contains information including the property being considered for purchase, the borrower's financial situation, as well as employment history. Lenders and banks use the information contained in the mortgage application to determine whether or not to approve the loan. The collection of client information, property information, and facts that is used to underwrite a mortgage."@en .
+
+
+###  http://qlRDF.com#RockHomeAgentId
+:RockHomeAgentId rdf:type owl:Class ;
+                 rdfs:subClassOf :Identifier ;
+                 rdfs:comment "A unique identifier that is assigned to an agent by Rocket Homes application."@en .
+
+
+###  http://qlRDF.com#RocketAccountId
+:RocketAccountId rdf:type owl:Class ;
+                 rdfs:subClassOf :Identifier ;
+                 rdfs:comment "The Unique ID for the account created for QL app."@en .
+
+
+###  http://qlRDF.com#SellerAgent
+:SellerAgent rdf:type owl:Class ;
+             rdfs:subClassOf :MAERealStateAgent .
+
+
+###  http://qlRDF.com#SocialSecurityNumber
+:SocialSecurityNumber rdf:type owl:Class ;
+                      rdfs:subClassOf :Identifier ;
+                      rdfs:comment "A nine-digit number issued to U.S. citizens, permanent residents, and temporary (working) residents by the Social Security Administration, used for identification and tracking of personal records."@en .
+
+
+###  http://qlRDF.com#SpanishSpeaking
+:SpanishSpeaking rdf:type owl:Class ;
+                 rdfs:subClassOf :Demographic .
+
+
+###  http://qlRDF.com#SubAdmiistrativeAreaType
+:SubAdmiistrativeAreaType rdf:type owl:Class ;
+                          rdfs:subClassOf :SubAdministrativeArea ;
+                          rdfs:comment "Sub Administrative area of the given address County District Province region"@en .
+
+
+###  http://qlRDF.com#SubAdministrativeArea
+:SubAdministrativeArea rdf:type owl:Class ;
+                       rdfs:subClassOf :Address ;
+                       rdfs:comment "The next level down division of the area. E.g. state / county, province / reservation. Note that not all countries have a subadministrative area"@en .
+
+
+###  http://qlRDF.com#TaxConsent
+:TaxConsent rdf:type owl:Class ;
+            rdfs:subClassOf :PartyTaxRole ;
+            rdfs:comment "Consent given by a person to pull tax filing information from directly IRS and other sources"@en .
+
+
+###  http://qlRDF.com#TaxFilling
+:TaxFilling rdf:type owl:Class ;
+            rdfs:subClassOf :PartyTaxRole .
+
+
+###  http://qlRDF.com#TeamMember
+:TeamMember rdf:type owl:Class ;
+            rdfs:subClassOf :PersonRole ;
+            rdfs:comment "The person who is working in the Rock Family of Companies."@en .
+
+
+###  http://qlRDF.com#TransactionCoordinator
+:TransactionCoordinator rdf:type owl:Class ;
+                        rdfs:subClassOf :MAEAgent ;
+                        rdfs:comment "A Transaction Coordinator is a real estate professional who manages all the paperwork and deadlines involved in a real estate transaction."@en .
+
+
+###  http://qlRDF.com#Visa
+:Visa rdf:type owl:Class ;
+      rdfs:subClassOf :BiographicInfo ;
+      rdfs:comment "A conditional authorization granted by a territory to a foreigner, allowing them to enter, remain within, or to leave that territory."@en .
+
+
+###  http://qlRDF.com/Preference
+<http://qlRDF.com/Preference> rdf:type owl:Class ;
+                              rdfs:subClassOf :Party ;
+                              rdfs:comment "Preferences of the person. e.g. seat in non smoking area, holiday with family than alone."@en .
+
+
+
