@@ -1,0 +1,759 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ql: <http://qlRDF.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@base <http://qlRDF.com/base/> . 
+
+
+<#LoanInfoMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMAMP" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/LoanInfo/{LOANNUMBER}"; rr:class ql:LoanInfo ;];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:MortgageBal ; rr:objectMap [ rr:column "CURRENT_MORTGAGE_BALANCE"; rr:datatype xsd:decimal;  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:EscrowBal ; rr:objectMap [ rr:column "CURRENT_ESCROW_BALANCE"; rr:datatype xsd:decimal;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:TotalEscrowBal ; rr:objectMap [ rr:column "CURRENT_TOTAL_ESCROW_BALANCE"; rr:datatype xsd:decimal;  ];
+ ];
+
+rr:predicateObjectMap
+ [
+rr:predicate ql:Escrowed ; rr:objectMap [ rr:column "ESCROWED";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:BiweeklyPaymentFlag ; rr:objectMap [ rr:column "BIWEEKLY_PAYMENT_FLAG";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:MonthlyPayment ; rr:objectMap [ rr:column "CURRENT_MONTHLY_MORTGAGE_PAYMENT"; rr:datatype xsd:decimal;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:IsPrimaryBorrower ; rr:objectMap [ rr:column "ISPRIMARYBORROWER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:LoanPurpose ; rr:objectMap [ rr:column "LOAN_PURPOSE";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:EsHomaVal ; rr:objectMap [ rr:column "ESTIMATED_HOME_VALUE"; rr:datatype xsd:double;  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:HOIProvider ; rr:objectMap [ rr:column "HOI_PROVIDER";  ];
+ ];
+rr:predicateObjectMap
+ [
+rr:predicate ql:AssetsCashVal ; rr:objectMap [ rr:column "ASSETS_CASH_VALUE"; rr:datatype xsd:double;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:AssetsBal ; rr:objectMap [ rr:column "ASSETS_BALANCE"; rr:datatype xsd:double;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:OrigCloseDt ; rr:objectMap [ rr:column "ORIGINAL_CLOSE_DATE"; rr:datatype xsd:date;  ];
+ ];
+
+.
+
+
+
+<#LoanInfoPersMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMPERSONHUB" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/LoanInfo/{LOANNUMBER}"; rr:class ql:LoanInfo ;];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:MortgageBal ; rr:objectMap [ rr:column "CURRENT_MORTGAGE_BALANCE"; rr:datatype xsd:decimal;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:EscrowBal ; rr:objectMap [ rr:column "CURRENT_ESCROW_BALANCE"; rr:datatype xsd:decimal;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:TotalEscrowBal ; rr:objectMap [ rr:column "CURRENT_TOTAL_ESCROW_BALANCE"; rr:datatype xsd:decimal;  ];
+ ];
+
+rr:predicateObjectMap
+ [
+rr:predicate ql:Escrowed ; rr:objectMap [ rr:column "ESCROWED";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:BiweeklyPaymentFlag ; rr:objectMap [ rr:column "BIWEEKLY_PAYMENT_FLAG";  ];
+ ];
+
+rr:predicateObjectMap
+ [
+rr:predicate ql:MonthlyPayment ; rr:objectMap [ rr:column "CURRENT_MONTHLY_MORTGAGE_PAYMENT"; rr:datatype xsd:decimal;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:IsPrimaryBorrower ; rr:objectMap [ rr:column "ISPRIMARYBORROWER";  ];
+ ];
+
+rr:predicateObjectMap
+ [
+rr:predicate ql:LoanPurpose ; rr:objectMap [ rr:column "LOAN_PURPOSE";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:EsHomaVal ; rr:objectMap [ rr:column "ESTIMATED_HOME_VALUE"; rr:datatype xsd:double;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:HOIProvider ; rr:objectMap [ rr:column "HOI_PROVIDER";  ];
+ ];
+
+
+
+.
+
+<#LoanInfoSerMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMSERVICING" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/LoanInfo/{LOANNUMBER}"; rr:class ql:LoanInfo ;];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:MortgageBal ; rr:objectMap [ rr:column "CURRENT_MORTGAGE_BALANCE"; rr:datatype xsd:decimal;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:EscrowBal ; rr:objectMap [ rr:column "CURRENTESCROWBALANCE"; rr:datatype xsd:decimal;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:TotalEscrowBal ; rr:objectMap [ rr:column "CURRENTTOTALESCROWBALANCE"; rr:datatype xsd:decimal;  ];
+ ];
+
+rr:predicateObjectMap
+ [
+rr:predicate ql:Escrowed ; rr:objectMap [ rr:column "ESCROWED";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:BiweeklyPaymentFlag ; rr:objectMap [ rr:column "BIWEEKLY_PAYMENT_FLAG";  ];
+ ];
+
+rr:predicateObjectMap
+ [
+rr:predicate ql:MonthlyPayment ; rr:objectMap [ rr:column "CURRENT_MONTHLY_MORTGAGE_PAYMENT"; rr:datatype xsd:decimal;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:LoanPurpose ; rr:objectMap [ rr:column "LOAN_PURPOSE";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:OrigCloseDt ; rr:objectMap [ rr:column "ORIGINAL_CLOSE_DATE"; rr:datatype xsd:date;  ];
+ ];
+
+.
+
+<#PropertyInfoMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMAMP" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/PropertyInfo/{LOANNUMBER}"; rr:class ql:PropertyInfo ;];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:PropType ; rr:objectMap [ rr:column "PROPERTY_TYPE";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:Occupancy ; rr:objectMap [ rr:column "OCCUPANCY";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:OrigPurPrice ; rr:objectMap [ rr:column "ORIGINAL_PURCHASE_PRICE"; rr:datatype xsd:decimal;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:AnnualOwnerInsur ; rr:objectMap [ rr:column "ANNUAL_HOMEOWNERS_INSURANCE"; rr:datatype xsd:decimal;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:AnnualPropTax ; rr:objectMap [ rr:column "ANNUAL_PROPERTY_TAX"; rr:datatype xsd:decimal;  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:YearBuilt ; rr:objectMap [ rr:column "YEAR_HOME_BUILT"; rr:datatype xsd:integer;  ];
+ ];
+ .
+
+<#PropertyInfoPersMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMPERSONHUB" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/PropertyInfo/{LOANNUMBER}"; rr:class ql:PropertyInfo ;];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:PropType ; rr:objectMap [ rr:column "PROPERTY_TYPE";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:Occupancy ; rr:objectMap [ rr:column "OCCUPANCY";  ];
+ ];
+rr:predicateObjectMap
+ [
+rr:predicate ql:OrigPurPrice ; rr:objectMap [ rr:column "ORIGINAL_PURCHASE_PRICE"; rr:datatype xsd:decimal;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:AnnualOwnerInsur ; rr:objectMap [ rr:column "ANNUAL_HOMEOWNERS_INSURANCE"; rr:datatype xsd:decimal;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:AnnualPropTax ; rr:objectMap [ rr:column "ANNUAL_PROPERTY_TAX"; rr:datatype xsd:decimal;  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:YearBuilt ; rr:objectMap [ rr:column "YEAR_HOME_BUILT"; rr:datatype xsd:integer;  ];
+ ];
+rr:predicateObjectMap
+ [
+rr:predicate ql:OrigOccupancyDt ; rr:objectMap [ rr:column "ORIGINAL_OCCUPANCY_DATE"; rr:datatype xsd:dateTime;  ];
+ ];
+ .
+
+ <#PropertyInfoSerMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMSERVICING" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/PropertyInfo/{LOANNUMBER}"; rr:class ql:PropertyInfo ;];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:PropType ; rr:objectMap [ rr:column "PROPERTY_TYPE";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:Occupancy ; rr:objectMap [ rr:column "OCCUPANCY";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:OrigPurPrice ; rr:objectMap [ rr:column "ORIGINAL_PURCHASE_PRICE"; rr:datatype xsd:decimal;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:AnnualOwnerInsur ; rr:objectMap [ rr:column "ANNUAL_HOMEOWNERS_INSURANCE"; rr:datatype xsd:decimal;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:AnnualPropTax ; rr:objectMap [ rr:column "ANNUAL_PROPERTY_TAX"; rr:datatype xsd:decimal;  ];
+ ];
+.
+
+<#AddressMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMAMP" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Address/{LOANNUMBER}"; rr:class ql:Address ;];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:PropAddress ; rr:objectMap [ rr:column "PROPERTY_ADDRESS";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:PropAddressLN2 ; rr:objectMap [ rr:column "ADDRESS_LINE_2";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:City ; rr:objectMap [ rr:column "CITY";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:State ; rr:objectMap [ rr:column "STATE";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:Zip ; rr:objectMap [ rr:column "ZIP_CODE";  ];
+ ];
+.
+
+<#AddressPersMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMPERSONHUB" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Address/{LOANNUMBER}"; rr:class ql:Address ;];
+rr:predicateObjectMap
+ [
+rr:predicate ql:PropAddress ; rr:objectMap [ rr:column "PROPERTY_ADDRESS";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:PropAddressLN2 ; rr:objectMap [ rr:column "ADDRESS_LINE_2";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:City ; rr:objectMap [ rr:column "CITY";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:State ; rr:objectMap [ rr:column "STATE";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:Zip ; rr:objectMap [ rr:column "ZIP_CODE";  ];
+ ];
+ .
+
+ <#AdressSerMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMSERVICING" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Address/{LOANNUMBER}"; rr:class ql:Address ;];
+rr:predicateObjectMap
+ [
+rr:predicate ql:PropAddress ; rr:objectMap [ rr:column "PROPERTY_ADDRESS";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:PropAddressLN2 ; rr:objectMap [ rr:column "ADDRESS_LINE_2";  ];
+ ];
+
+rr:predicateObjectMap
+ [
+rr:predicate ql:City ; rr:objectMap [ rr:column "CITY";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:State ; rr:objectMap [ rr:column "STATE";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:Zip ; rr:objectMap [ rr:column "ZIP_CODE";  ];
+ ];
+ .
+
+<#ClientInfoMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMAMP" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/ClientInfo/{LOANNUMBER}"; rr:class ql:ClientInfo ;];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:HomePhoneNum ; rr:objectMap [ rr:column "HOME_PHONE_NUMBER";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:WorkPhoneNum ; rr:objectMap [ rr:column "WORK_PHONE_NUMBER";  ];
+ ];
+rr:predicateObjectMap
+ [
+rr:predicate ql:BirthDate ; rr:objectMap [ rr:column "DATE_OF_BIRTH"; rr:datatype xsd:dateTime;  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:VeternStat ; rr:objectMap [ rr:column "VETERAN";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:MaritalStatus ; rr:objectMap [ rr:column "MARRIED";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:Salary ; rr:objectMap [ rr:column "YEARLY_INCOME"; rr:datatype xsd:double;  ];
+ ];
+ .
+
+<#ClientInfoPersMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMPERSONHUB" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/ClientInfo/{LOANNUMBER}"; rr:class ql:ClientInfo ;];
+rr:predicateObjectMap
+ [
+rr:predicate ql:HomePhoneNum ; rr:objectMap [ rr:column "HOME_PHONE_NUMBER";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:WorkPhoneNum ; rr:objectMap [ rr:column "WORK_PHONE_NUMBER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:BirthDate ; rr:objectMap [ rr:column "DATE_OF_BIRTH"; rr:datatype xsd:dateTime;  ];
+ ];
+rr:predicateObjectMap
+ [
+rr:predicate ql:VeternStat ; rr:objectMap [ rr:column "IS_VETERAN";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:MaritalStatus ; rr:objectMap [ rr:column "MARRIED";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:Salary ; rr:objectMap [ rr:column "YEARLY_INCOME"; rr:datatype xsd:double;  ];
+ ];
+ .
+
+ <#ClientInfoSerMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMSERVICING" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/ClientInfo/{LOANNUMBER}"; rr:class ql:ClientInfo ;];
+rr:predicateObjectMap
+ [
+rr:predicate ql:HomePhoneNum ; rr:objectMap [ rr:column "HOME_PHONE_NUMBER";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:WorkPhoneNum ; rr:objectMap [ rr:column "WORK_PHONE_NUMBER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:BirthDate ; rr:objectMap [ rr:column "DATE_OF_BIRTH"; rr:datatype xsd:dateTime;  ];
+ ];
+
+ .
+
+
+<#EmploymentMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMAMP" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Employment/{LOANNUMBER}"; rr:class ql:Employment ;];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:EmployerPhoneNum ; rr:objectMap [ rr:column "EMPLOYER_PHONE_NUMBER";  ];
+ ];
+rr:predicateObjectMap
+ [
+rr:predicate ql:EmployerName ; rr:objectMap [ rr:column "EMPLOYER_NAME";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:JobTitle ; rr:objectMap [ rr:column "JOB_TITLE";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:JobType ; rr:objectMap [ rr:column "JOB_TYPE";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:StartDt; rr:objectMap [ rr:column "EMPLOYER_START_DATE";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:MonthsOnJob ; rr:objectMap [ rr:column "MONTHSONJOB"; rr:datatype xsd:double;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:CurJob ; rr:objectMap [ rr:column "CURRENT_JOB";  ];
+ ];
+
+ .
+
+<#EmploymentPersMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMPERSONHUB" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Employment/{LOANNUMBER}"; rr:class ql:Employment ;];
+rr:predicateObjectMap
+ [
+rr:predicate ql:EmployerPhoneNum ; rr:objectMap [ rr:column "EMPLOYER_PHONE_NUMBER";  ];
+ ];
+rr:predicateObjectMap
+ [
+rr:predicate ql:EmployerName ; rr:objectMap [ rr:column "EMPLOYER_NAME";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:JobTitle ; rr:objectMap [ rr:column "JOB_TITLE";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:MonthsOnJob ; rr:objectMap [ rr:column "MONTHSONJOB"; rr:datatype xsd:double;  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:IsCurJob ; rr:objectMap [ rr:column "IS_CURRENTJOB";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:StartDt ; rr:objectMap [ rr:column "EMPLOYMENT_START_DATE"; rr:datatype xsd:dateTime;  ];
+ ];
+ .
+
+
+<#ViableFlagMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMAMP" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/ViableFlag/{LOANNUMBER}"; rr:class ql:ViableFlag ;];
+ rr:predicateObjectMap
+ [
+rr:predicate ql:CashoutViable ; rr:objectMap [ rr:column "CASHOUT_VIABLE";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:LowerPymentViable ; rr:objectMap [ rr:column "LOWER_PAYMENT_VIABLE";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate ql:ShortentermViable ; rr:objectMap [ rr:column "SHORTENTERM_VIABLE";  ];
+ ];
+ .
+
+
+<#AmpMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMAMP" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Source/{LOANNUMBER}"; rr:class ql:Amp ;];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasLoanInfo ;
+ rr:objectMap [
+rr:parentTriplesMap <#LoanInfoMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasPropertyInfo ;
+ rr:objectMap [
+rr:parentTriplesMap <#PropertyInfoMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasClientInfo ;
+ rr:objectMap [
+rr:parentTriplesMap <#ClientInfoMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasAddressInfo ;
+ rr:objectMap [
+rr:parentTriplesMap <#AddressMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasEmploymentInfo ;
+ rr:objectMap [
+rr:parentTriplesMap <#EmploymentMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasViableFlags ;
+ rr:objectMap [
+rr:parentTriplesMap <#ViableFlagMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:Identifies ;
+ rr:objectMap [
+rr:parentTriplesMap <#IdentifierMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+ .
+
+
+<#PersonhubMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMPERSONHUB" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Source/{LOANNUMBER}"; rr:class ql:Personhub ;];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasLoanInfo ;
+ rr:objectMap [
+rr:parentTriplesMap <#LoanInfoPersMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasPropertyInfo ;
+ rr:objectMap [
+rr:parentTriplesMap <#PropertyInfoPersMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasClientInfo ;
+ rr:objectMap [
+rr:parentTriplesMap <#ClientInfoPersMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasAddressInfo ;
+ rr:objectMap [
+rr:parentTriplesMap <#AddressPersMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasEmploymentInfo ;
+ rr:objectMap [
+rr:parentTriplesMap <#EmploymentPersMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:Identifies ;
+ rr:objectMap [
+rr:parentTriplesMap <#IdentifierPersMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+.
+
+<#ServicingMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMSERVICING" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Source/{LOANNUMBER}"; rr:class ql:Servicing ;];
+rr:predicateObjectMap
+ [
+ rr:predicate ql:hasLoanInfo ;
+ rr:objectMap [
+rr:parentTriplesMap <#LoanInfoSerMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasPropertyInfo ;
+ rr:objectMap [
+rr:parentTriplesMap <#PropertyInfoSerMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasClientInfo ;
+ rr:objectMap [
+rr:parentTriplesMap <#ClientInfoSerMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:Identifies ;
+ rr:objectMap [
+rr:parentTriplesMap <#IdentifierSerMap>;
+ rr:joinCondition [ rr:child "LOANNUMBER" ; rr:parent "LOANNUMBER" ; ]
+ ];
+ ];
+
+ .
+
+ <#IdentifierMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMAMP" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/LoanInfo/{LOANNUMBER}"; rr:class ql:Identifier ;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "ROCKETACCOUNTID";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "GCID";  ];
+ ];
+
+ .
+
+
+<#IdentifierPersMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMPERSONHUB" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Identifier/{LOANNUMBER}"; rr:class ql:Identifier ;];
+rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "ROCKETACCOUNTID";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "GCID";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "PERSONID"; rr:datatype xsd:integer;  ];
+ ];
+ .
+
+
+<#IdentifierSerMap> a rr:TriplesMap;
+rr:logicalTable [ rr:tableName "GAMSERVICING" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Identifier/{LOANNUMBER}"; rr:class ql:Identifier ;];
+rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "ROCKETACCOUNTID";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "PEID";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "RELTIO_URI";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "GCID";  ];
+ ];
+
+ 
+ .
