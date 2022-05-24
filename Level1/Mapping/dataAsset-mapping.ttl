@@ -1,0 +1,1257 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ql: <http://qlRDF.com/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@base <http://qlRDF.com/base/> . 
+
+<#DataConceptMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DATACONCEPT" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/DATACONCEPT/{DATACONCEPTIDENTIFIER}"; rr:class ql:dataConcept ;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATACONCEPTNAME";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATACONCEPTTYPE";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATACONCEPTOWNER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATACONCEPTVERSION";  ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasEntities ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataConceptEntityMap>;
+ rr:joinCondition [ rr:child "DATACONCEPTIDENTIFIER" ; rr:parent "DATACONCEPTIDENTIFIER" ; ]
+ ];
+ ];
+ .
+
+
+<#DataConceptEntityMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DATACONCEPTENTITY" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/DATACONCEPTENTITY/{DATACONCEPTENTITYIDENTIFIER}"; rr:class ql:dataConceptEntity;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATACONCEPTIDENTIFIER";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATACONCEPTENTITY"; rr:datatype xsd:int; ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATACONCEPTENTITYDESCRIPTION"; ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasLogicalDataEntities ;
+ rr:objectMap [
+rr:parentTriplesMap <#LogicalDataEntityMap>;
+ rr:joinCondition [ rr:child "DATACONCEPTENTITYIDENTIFIER" ; rr:parent "DATACONCEPTENTITYIDENTIFIER" ; ]
+ ];
+ ];
+. 
+
+<#LogicalDataEntityMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "LOGICALDATAENTITY" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/LogicalDataEntity/{LOGICALDATAENTITYIDENTIFIER}"; rr:class ql:LogicalDataEntity;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATACONCEPTIDENTIFIER";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATACONCEPTENTITYIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYNAME"; ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYDESCRIPTION"; ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasAttributes ;
+ rr:objectMap [
+rr:parentTriplesMap <#LogicalDataEntityAttributesMap>;
+ rr:joinCondition [ rr:child "LOGICALDATAENTITYIDENTIFIER" ; rr:parent "LOGICALDATAENTITYIDENTIFIER" ; ]
+ ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataQualityMetrics ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataQualityMetricMap>;
+ rr:joinCondition [ rr:child "LOGICALDATAENTITYIDENTIFIER" ; rr:parent "LOGICALDATAENTITYIDENTIFIER" ; ]
+ ];
+ ];
+. 
+<#LogicalDataEntityAttributesMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "LOGICALDATAENTITYATTRIBUTES" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/LogicalDataEntityAttribute/{LOGICALDATAENTITYIDENTIFIER}"; rr:class ql:LogicalDataEntityAttributes;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYATTRIBUTEIDENTIFIER";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DOMAINIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYATTRIBUTENAME"; ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataGroup ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataGroupMap>;
+ rr:joinCondition [ rr:child "LOGICALDATAENTITYIDENTIFIER" ; rr:parent "LOGICALDATAENTITYIDENTIFIER" ; ]
+ ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDomain ;
+ rr:objectMap [
+rr:parentTriplesMap <#DomainMap>;
+ rr:joinCondition [ rr:child "DOMAINIDENTIFIER" ; rr:parent "DOMAINIDENTIFIER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataQualityMetrics ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataQualityMetricMap>;
+ rr:joinCondition [ rr:child "LOGICALDATAENTITYIDENTIFIER" ; rr:parent "LOGICALDATAENTITYIDENTIFIER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessRuleDataElement ;
+ rr:objectMap [
+rr:parentTriplesMap <#MiscBusinessRuleDataElementMap>;
+ rr:joinCondition [ rr:child "LOGICALDATAENTITYIDENTIFIER" ; rr:parent "LOGICALDATAENTITYIDENTIFIER" ; ]
+ ];
+ ];
+. 
+<#DataGroupMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DATAGROUP" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/DATAGROUP/{DATAGROUPIDENTIFIER}"; rr:class ql:DataGroup;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYATTRIBUTEIDENTIFIER";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "LOGICALDATAENTITYIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAGROUPNAME"; ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasSchemaRepo ;
+ rr:objectMap [
+rr:parentTriplesMap <#SchemaRepositoryMap>;
+ rr:joinCondition [ rr:child "DATAGROUPIDENTIFIER" ; rr:parent "DATAGROUPIDENTIFIER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataQualityMetrics ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataQualityMetricMap>;
+ rr:joinCondition [ rr:child "LOGICALDATAENTITYIDENTIFIER" ; rr:parent "LOGICALDATAENTITYIDENTIFIER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataGroupSystem ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataGroupSystemMap>;
+ rr:joinCondition [ rr:child "DATAGROUPIDENTIFIER" ; rr:parent "DATAGROUPIDENTIFIER" ; ]
+ ];
+ ];
+ 
+. 
+<#DomainMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DOMAIN" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/DOMAIN/{DOMAINIDENTIFIER}"; rr:class ql:domain;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DOMAINNAME";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DOMAINDEPENDENTELEMENT";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DOMAINDESCRIPTION";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DOMAINACRONYMNAME";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DOMAINBUSINESSDEFINITION";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DOMAINDATATYPENAME";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DOMAINPERCISIONQUANTITY";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DOMAINSCALEQUANTITY";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DOMAINRANGEMINIMUMVALUE";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DOMAINNAMEMAXIMUMVALUE";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DOMAINVALUEFLAG";   ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasValues ;
+ rr:objectMap [
+rr:parentTriplesMap <#DomainValueMap>;
+ rr:joinCondition [ rr:child "DOMAINIDENTIFIER" ; rr:parent "DOMAINIDENTIFIER" ; ]
+ ];
+ ];
+. 
+
+<#SchemaRepositoryMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "SCHEMAREPOSITORY" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/SchemaRepo/{SCHEMAREPOSITORYIDENTIFIER}"; rr:class ql:SchemaRepo;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "SCHEMATYPE";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "LOCATIONURL";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "LOGICALDATAENTITYIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAGROUPIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYATTRIBUTEIDENTIFIER";  ];
+ ];
+ 
+. 
+
+<#DomainValueMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DOMAINVALUE" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/DomainValue/{DOMAINIDENTIFIER}"; rr:class ql:domainValue;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAVALUEDESCRIPTION";   ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAVALUEDEFAULTFLAG";  ];
+ ];
+ 
+ 
+. 
+
+<#XMLDataGroupTypeMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "XMLDATAGROUPTYPE" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/XMLDataGroupType/{DATAGROUPIDENTIFIER}"; rr:class ql:XMLDataGroupType;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "LOGICALDATAENTITYIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYATTRIBUTEIDENTIFIER";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:isElementOf ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataGroupMap>;
+ rr:joinCondition [ rr:child "DATAGROUPIDENTIFIER" ; rr:parent "DATAGROUPIDENTIFIER" ; ]
+ ];
+ ];
+ 
+. 
+
+<#JSONDataGroupTypeMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "JSONDATAGROUPTYPE" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/JSONDataGroupType/{DATAGROUPIDENTIFIER}"; rr:class ql:JSONDataGroupType;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "LOGICALDATAENTITYIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYATTRIBUTEIDENTIFIER";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:isElementOf ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataGroupMap>;
+ rr:joinCondition [ rr:child "DATAGROUPIDENTIFIER" ; rr:parent "DATAGROUPIDENTIFIER" ; ]
+ ];
+ ];
+ 
+. 
+
+<#RelationalDataGroupTypeMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "RELATIONALDATAGROUPTYPE" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/RelationalDataGroupType/{DATAGROUPIDENTIFIER}"; rr:class ql:RelationalDataGroupType;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "LOGICALDATAENTITYIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYATTRIBUTEIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataEntity ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataEntityMap>;
+ rr:joinCondition [ rr:child "DATAGROUPIDENTIFIER" ; rr:parent "DATAGROUPIDENTIFIER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:isElementOf ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataGroupMap>;
+ rr:joinCondition [ rr:child "DATAGROUPIDENTIFIER" ; rr:parent "DATAGROUPIDENTIFIER" ; ]
+ ];
+ ];
+ 
+. 
+
+<#DataEntityMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DATAENTITY" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/DataEntity/{DATAENTITYIDENTIFIER}"; rr:class ql:DataEntity;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "LOGICALDATAENTITYIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYATTRIBUTEIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAGROUPIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYDESCRIPTION";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYNAME";  ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataElement ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataElementMap>;
+ rr:joinCondition [ rr:child "DATAENTITYIDENTIFIER" ; rr:parent "DATAENTITYIDENTIFIER" ; ]
+ ];
+ ];
+ 
+. 
+
+<#DataElementMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DATAELEMENT" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/DataElement/{DATAATTRIBUTEIDENTIFIER}"; rr:class ql:DataElement;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "LOGICALDATAENTITYIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYATTRIBUTEIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAGROUPIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAATTRIBUTENAME";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAATTRIBUTEDESCRIPTION";  ];
+ ];
+. 
+
+<#DataQualityMeasurementMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DATAQUALITYMEASUREMENT" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/DataQualityMeasurement/{DATAQUALITYLEVELCODE}"; rr:class ql:DataQuality;];
+
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAQUALITYMETRICIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULEIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "MEASUREMENTVALUEQUALITY";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasQualityLevel ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataQualityLevelMap>;
+ rr:joinCondition [ rr:child "DATAQUALITYLEVELCODE" ; rr:parent "DATAQUALITYLEVELCODE" ; ]
+ ];
+ ];
+ .
+
+<#DataQualityLevelMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DATAQUALITYLEVEL" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/DataQualityLevel/{DATAQUALITYLEVELCODE}"; rr:class ql:DataQuality; ];
+ 
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasQualityMETRIC ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataQualityMetricMap>;
+ rr:joinCondition [ rr:child "DATAQUALITYLEVELCODE" ; rr:parent "DATAQUALITYLEVELCODE" ; ]
+ ];
+ ];
+ .
+
+ <#DataQualityMetricMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DATAQUALITYMETRIC" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/DataQualityMetric/{DATAQUALITYMETRICIDENTIFIER}"; rr:class ql:DataQuality;];
+ 
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasQualityRuleLocation ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataQualityRuleLocationMap>;
+ rr:joinCondition [ rr:child "DATAQUALITYMETRICIDENTIFIER" ; rr:parent "DATAQUALITYMETRICIDENTIFIER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasQualityMeasurement ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataQualityMeasurementMap>;
+ rr:joinCondition [ rr:child "MEASUREMENTFREQUENCYCODE" ; rr:parent "MEASUREMENTFREQUENCYCODE" ; ]
+ ];
+ ];
+ .
+
+<#MeasurementFrequencyMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "MEASUREMENTFREQUENCY" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/MeasurementFrequency/{MEASUREMENTFREQUENCYCODE}"; rr:class ql:DataQuality;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "MEASUREMENTFREQUENCYCODEDESCRIPTION";  ];
+ ];
+ 
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasQualityMetric ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataQualityMetricMap>;
+ rr:joinCondition [ rr:child "MEASUREMENTFREQUENCYCODE" ; rr:parent "MEASUREMENTFREQUENCYCODE" ; ]
+ ];
+ ];
+
+ .
+
+ <#NotificationGroupMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "NOTIFICATIONGROUP" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/NotificationGroup/{NOTIFICATIONGROUPIDENTIFIER}"; rr:class ql:DataQuality;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "NOTIFICATIONGROUPNAME";  ];
+ ];
+ 
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasNotificationAssignment ;
+ rr:objectMap [
+rr:parentTriplesMap <#NotificationGroupAssignmentMap>;
+ rr:joinCondition [ rr:child "NOTIFICATIONGROUPIDENTIFIER" ; rr:parent "NOTIFICATIONGROUPIDENTIFIER" ; ]
+ ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasQualityMetric ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataQualityMetricMap>;
+ rr:joinCondition [ rr:child "NOTIFICATIONGROUPIDENTIFIER" ; rr:parent "NOTIFICATIONGROUPIDENTIFIER" ; ]
+ ];
+ ];
+
+ .
+
+ <#NotificationGroupAssignmentMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "NOTIFICATIONGROUPASSIGNMENT" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/NotificationGroupAssignment/{NOTIFICATIONGROUPIDENTIFIER}"; rr:class ql:DataQuality;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "COMMONID";  ];
+ ];
+ 
+ .
+
+ <#DataQualityRuleLocationMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DATAQUALITYRULELOCATION" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/DataQualityRuleLocation/{CODEREPOSITORYLOCATION}"; rr:class ql:DataQuality;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAQUALITYMETRICIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULEIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAQUALITYRULEFILENAME";  ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessRuleDataElement ;
+ rr:objectMap [
+rr:parentTriplesMap <#MiscBusinessRuleDataElementMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULEIDENTIFIER" ; rr:parent "BUSINESSRULEIDENTIFIER" ; ]
+ ];
+ ];
+
+ .
+
+ <#DataStewardMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "PERSON" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/DataSteward/{COMMONID}"; rr:class ql:DataSteward;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "TEAMMEMBERNAME";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasNotificationAssignment ;
+ rr:objectMap [
+rr:parentTriplesMap <#NotificationGroupAssignmentMap>;
+ rr:joinCondition [ rr:child "COMMONID" ; rr:parent "COMMONID" ; ]
+ ];
+ ];
+ 
+ .
+
+<#DataGroupStorageMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DATAGROUPSTORAGE" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/DataGroupStorage/{URL}"; rr:class ql:System;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "STORAGETYPE";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataGroupSystem ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataGroupSystemMap>;
+ rr:joinCondition [ rr:child "DATAGROUPSYSTEMIDENTIFIER" ; rr:parent "DATAGROUPSYSTEMIDENTIFIER" ; ]
+ ];
+ ];
+ 
+ .
+
+<#ServerMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "SERVER" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Server/{SERVERURL}"; rr:class ql:System;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "SERVERNAME";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "SERVERDESCRIPTION";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataGroupSystem ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataGroupSystemMap>;
+ rr:joinCondition [ rr:child "DATAGROUPSYSTEMIDENTIFIER" ; rr:parent "DATAGROUPSYSTEMIDENTIFIER" ; ]
+ ];
+ ];
+ 
+ .
+
+<#DataGroupSystemMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DATAGROUPSYSTEM" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/DataGroupSystem/{DATAGROUPSYSTEMIDENTIFIER}"; rr:class ql:System;];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasApplication ;
+ rr:objectMap [
+rr:parentTriplesMap <#ApplicationMap>;
+ rr:joinCondition [ rr:child "DATAGROUPSYSTEMIDENTIFIER" ; rr:parent "DATAGROUPSYSTEMIDENTIFIER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataGroupStorage ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataGroupStorageMap>;
+ rr:joinCondition [ rr:child "DATAGROUPSYSTEMIDENTIFIER" ; rr:parent "DATAGROUPSYSTEMIDENTIFIER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasServer ;
+ rr:objectMap [
+rr:parentTriplesMap <#ServerMap>;
+ rr:joinCondition [ rr:child "DATAGROUPSYSTEMIDENTIFIER" ; rr:parent "DATAGROUPSYSTEMIDENTIFIER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataEnvironment ;
+ rr:objectMap [
+rr:parentTriplesMap <#SystemDataGroupEnvironmentMap>;
+ rr:joinCondition [ rr:child "DATAGROUPSYSTEMIDENTIFIER" ; rr:parent "DATAGROUPSYSTEMIDENTIFIER" ; ]
+ ];
+ ];
+ .
+
+ <#SystemDataGroupEnvironmentMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "SYSTEMDATAGROUPENVIRONMENT" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/SystemDataGroupEnvironment/{SYSTEMDATAGROUPENVIRONMENTIDENTIFIER}"; rr:class ql:System;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "SYSTEMDATAGROUPENVIRONMENTNAME";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "SYSTEMDATAGROUPENVIRONMENTDESCRIPTION";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataGroupSystem ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataGroupSystemMap>;
+ rr:joinCondition [ rr:child "DATAGROUPSYSTEMIDENTIFIER" ; rr:parent "DATAGROUPSYSTEMIDENTIFIER" ; ]
+ ];
+ ];
+ 
+ .
+
+ <#ProductionMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "PRODUCTION" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Production/{SYSTEMDATAGROUPENVIRONMENTIDENTIFIER}"; rr:class ql:System;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "SYSTEMDATAGROUPENVIRONMENTNAME";  ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataGroupEnvironment ;
+ rr:objectMap [
+rr:parentTriplesMap <#SystemDataGroupEnvironmentMap>;
+ rr:joinCondition [ rr:child "SYSTEMDATAGROUPENVIRONMENTIDENTIFIER" ; rr:parent "SYSTEMDATAGROUPENVIRONMENTIDENTIFIER" ; ]
+ ];
+ ];
+ 
+ 
+ .
+
+ <#DevelopmentMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DEVELOPMENT" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Development/{SYSTEMDATAGROUPENVIRONMENTIDENTIFIER}"; rr:class ql:System;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "SYSTEMDATAGROUPENVIRONMENTNAME";  ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataGroupEnvironment ;
+ rr:objectMap [
+rr:parentTriplesMap <#SystemDataGroupEnvironmentMap>;
+ rr:joinCondition [ rr:child "SYSTEMDATAGROUPENVIRONMENTIDENTIFIER" ; rr:parent "SYSTEMDATAGROUPENVIRONMENTIDENTIFIER" ; ]
+ ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataSteward ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataStewardMap>;
+ rr:joinCondition [ rr:child "SYSTEMDATAGROUPENVIRONMENTIDENTIFIER" ; rr:parent "SYSTEMDATAGROUPENVIRONMENTIDENTIFIER" ; ]
+ ];
+ ];
+
+ 
+ 
+ .
+
+ <#ApplicationMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "APPLICATION" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Application/{APPLICATIONID}"; rr:class ql:Application;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "SERVICECATEGORY";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "APPLICATIONDESCRIPTION";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "APPLICATIONSTATUS";  ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasETLApplication ;
+ rr:objectMap [
+rr:parentTriplesMap <#ETLApplicationMap>;
+ rr:joinCondition [ rr:child "APPLICATIONID" ; rr:parent "APPLICATIONID" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasProductApplication ;
+ rr:objectMap [
+rr:parentTriplesMap <#ProductApplicationMap>;
+ rr:joinCondition [ rr:child "APPLICATIONID" ; rr:parent "APPLICATIONID" ; ]
+ ];
+ ];
+ 
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDeployment ;
+ rr:objectMap [
+rr:parentTriplesMap <#DeploymentMap>;
+ rr:joinCondition [ rr:child "APPLICATIONID" ; rr:parent "APPLICATIONID" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasCodeRepo ;
+ rr:objectMap [
+rr:parentTriplesMap <#CodeRepositoryMap>;
+ rr:joinCondition [ rr:child "APPLICATIONID" ; rr:parent "APPLICATIONID" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataGroupSystem ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataGroupSystemMap>;
+ rr:joinCondition [ rr:child "APPLICATIONID" ; rr:parent "APPLICATIONID" ; ]
+ ];
+ ];
+ .
+
+ <#ETLApplicationMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "ETLAPPLICATION" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/ETLApplication/{APPLICATIONID}"; rr:class ql:Application;];
+ 
+ 
+ .
+
+ <#ProductApplicationMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "PRODUCTAPPLICATION" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/ProductApplication/{APPLICATIONID}"; rr:class ql:Application;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "ENDPOINT";  ];
+ ];
+ 
+ 
+ .
+
+ <#CodeRepositoryMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "CODEREPOSITORY" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/CodeRepository/{CODEREPOSITORYLOCATION}"; rr:class ql:CodeRepository;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "ORGANIZATION";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DESCRIPTION";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataQualityRuleLocation ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataQualityRuleLocationMap>;
+ rr:joinCondition [ rr:child "CODEREPOSITORYLOCATION" ; rr:parent "CODEREPOSITORYLOCATION" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasGitCommit ;
+ rr:objectMap [
+rr:parentTriplesMap <#GitCommitMap>;
+ rr:joinCondition [ rr:child "CODEREPOSITORYLOCATION" ; rr:parent "CODEREPOSITORYLOCATION" ; ]
+ ];
+ ];
+ 
+ 
+ .
+
+ <#GitCommitMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "GITCOMMIT" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/GitCommit/{CODEREPOSITORYLOCATION}"; rr:class ql:CodeRepository;];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:goes2Hal ;
+ rr:objectMap [
+rr:parentTriplesMap <#HalMap>;
+ rr:joinCondition [ rr:child "CODEREPOSITORYLOCATION" ; rr:parent "CODEREPOSITORYLOCATION" ; ]
+ ];
+ ];
+ 
+ .
+
+ <#DeploymentMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "DEPLOYMENT" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Deployment/{APPLICATIONID}"; rr:class ql:CodeRepository;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "GITURL";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "GITVERSION";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DEPLOYMENTSTARTDATE";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DEPLOYMENTENDDATE";  ];
+ ];
+ 
+ 
+ .
+
+ <#HalMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "HAL" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Hal/{HALBUILDID}"; rr:class ql:CodeRepository;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "CODEREPOSITORYLOCATION";  ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:needsPush ;
+ rr:objectMap [
+rr:parentTriplesMap <#PushMap>;
+ rr:joinCondition [ rr:child "CODEREPOSITORYLOCATION" ; rr:parent "CODEREPOSITORYLOCATION" ; ]
+ ];
+ ];
+ 
+
+ .
+
+<#PushMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "PUSH" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/Push/{HALBUILDID}"; rr:class ql:CodeRepository;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "CODEREPOSITORYLOCATION";  ];
+ ];
+ 
+
+ .
+
+ <#BusinessRuleRelationshipTypeMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "BUSINESSRULERELATIONSHIPTYPE" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/BusinessRuleRelationshipType/{BUSINESSRULERELATIONSHIPTYPECODE}"; rr:class ql:BusinessRule;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULERELATIONSHIPTYPEDESCRIPTION";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataRuleAssociation ;
+ rr:objectMap [
+rr:parentTriplesMap <#BusinessRuleAssociationMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULERELATIONSHIPTYPECODE" ; rr:parent "BUSINESSRULERELATIONSHIPTYPECODE" ; ]
+ ];
+ ];
+ 
+
+ .
+
+ <#BusinessRuleIssueMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "BUSINESSRULEISSUE" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/BusinessRuleIssue/{BUSINESSRULEIDENTIFIER}"; rr:class ql:BusinessRule;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULEISSUETEXT";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULEISSUEPRIORITY";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULEISSUERESOLUTIONTEXT";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULEISSUESTATUSCODE";  ];
+ ];
+ 
+
+ .
+
+ <#BusinessRuleStatusMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "BUSINESSRULESTATUS" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/BusinessRuleStatus/{BUSINESSRULESTATUSCODE}"; rr:class ql:BusinessRule;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULESTATUSDESCRIPTION";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessRule ;
+ rr:objectMap [
+rr:parentTriplesMap <#BusinessRuleMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULESTATUSCODE" ; rr:parent "BUSINESSRULESTATUSCODE" ; ]
+ ];
+ ];
+ 
+
+ .
+
+ <#BusinessRuleAssociationMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "BUSINESSRULEASSOCIATION" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/BusinessRuleAssociation/{BUSINESSRULEIDENTIFIER}"; rr:class ql:BusinessRule;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULERELATIONSHIPTYPECODE";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "RELATEDBUSINESSIDENTIFIER";  ];
+ ];
+ 
+
+ .
+
+ <#BusinessRuleMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "BUSINESSRULE" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/BusinessRule/{BUSINESSRULEIDENTIFIER}"; rr:class ql:BusinessRule;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULESTATUSCODE";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULECATEGORY";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULEEFFECTIVEDATE";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULECATEGORYCODE";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessRuleIssue ;
+ rr:objectMap [
+rr:parentTriplesMap <#BusinessRuleIssueMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULEIDENTIFIER" ; rr:parent "BUSINESSRULEIDENTIFIER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessRuleAssociation ;
+ rr:objectMap [
+rr:parentTriplesMap <#BusinessRuleAssociationMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULEIDENTIFIER" ; rr:parent "BUSINESSRULEIDENTIFIER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasDataQualityMetrics ;
+ rr:objectMap [
+rr:parentTriplesMap <#DataQualityMetricMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULEIDENTIFIER" ; rr:parent "BUSINESSRULEIDENTIFIER" ; ]
+ ];
+ ];
+ 
+ 
+
+ .
+
+ <#BusinessRuleCategoryMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "BUSINESSRULECATEGORY" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/BusinessRuleCategory/{BUSINESSRULECATEGORYCODE}"; rr:class ql:BusinessRule;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULECATEGORYREASONCODE";  ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessRule ;
+ rr:objectMap [
+rr:parentTriplesMap <#BusinessRuleMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULECATEGORYCODE" ; rr:parent "BUSINESSRULECATEGORYCODE" ; ]
+ ];
+ ];
+ 
+ 
+
+ .
+
+ <#BusinessRuleCategoryReasonMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "BUSINESSRULECATEGORYREASON" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/BusinessRuleCategoryReason/{BUSINESSRULECATEGORYREASONCODE}"; rr:class ql:BusinessRule;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULECATEGORYREASONDESCRIPTION";  ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessRule ;
+ rr:objectMap [
+rr:parentTriplesMap <#BusinessRuleCategoryMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULECATEGORYREASONCODE" ; rr:parent "BUSINESSRULECATEGORYREASONCODE" ; ]
+ ];
+ ];
+
+ .
+
+ <#BusinessRuleExpressionMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "BUSINESSRULEEXPRESSION" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/BusinessRuleExpression/{BUSINESSRULEIDENTIFIER}"; rr:class ql:BusinessRule;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "EXPRESSIONIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessRule ;
+ rr:objectMap [
+rr:parentTriplesMap <#BusinessRuleMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULEIDENTIFIER" ; rr:parent "BUSINESSRULEIDENTIFIER" ; ]
+ ];
+ ];
+ 
+
+ .
+
+ <#MiscBusinessRuleMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "MISCBUSINESSRULE" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/MiscBusinessRule/{BUSINESSRULEIDENTIFIER}"; rr:class ql:BusinessRule;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "MISCBUSINESSRULETEXT";  ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessRuleTerm ;
+ rr:objectMap [
+rr:parentTriplesMap <#BusinessRuleTermMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULEIDENTIFIER" ; rr:parent "BUSINESSRULEIDENTIFIER" ; ]
+ ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessRuleDataElement ;
+ rr:objectMap [
+rr:parentTriplesMap <#MiscBusinessRuleDataElementMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULEIDENTIFIER" ; rr:parent "BUSINESSRULEIDENTIFIER" ; ]
+ ];
+ ];
+
+ .
+
+<#MiscBusinessRuleTermMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "MISCBUSINESSRULETERM" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/MiscBusinessRuleTerm/{BUSINESSRULEIDENTIFIER}"; rr:class ql:BusinessRule;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "TERMBUSINESSRULEIDENTIFIER";  ];
+ ];
+ 
+ 
+
+ .
+
+ <#BusinessRuleTermMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "BUSINESSRULETERM" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/BusinessRuleTerm/{BUSINESSRULEIDENTIFIER}"; rr:class ql:BusinessRule;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULETERMNAME";  ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessRuleDataElement ;
+ rr:objectMap [
+rr:parentTriplesMap <#MiscBusinessRuleTermMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULEIDENTIFIER" ; rr:parent "BUSINESSRULEIDENTIFIER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessRule ;
+ rr:objectMap [
+rr:parentTriplesMap <#BusinessRuleMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULEIDENTIFIER" ; rr:parent "BUSINESSRULEIDENTIFIER" ; ]
+ ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessTermSynonym ;
+ rr:objectMap [
+rr:parentTriplesMap <#BusinessTermSynonymMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULEIDENTIFIER" ; rr:parent "BUSINESSRULEIDENTIFIER" ; ]
+ ];
+ ];
+ 
+
+ .
+
+ <#MiscBusinessRuleDataElementMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "MISCBUSINESSRULEDATAELEMENT" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/MiscBusinessRuleDataElement/{BUSINESSRULEIDENTIFIER}"; rr:class ql:BusinessRule;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "DATAENTITYATTRIBUTEIDENTIFIER";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "LOGICALDATAENTITYIDENTIFIER";  ];
+ ];
+ 
+
+ .
+
+ <#ExpressionNodeMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "EXPRESSIONNODE" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/ExpressionNode/{EXPRESSIONIDENTIFIER}"; rr:class ql:BusinessRule;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "VALUETYPE";  ];
+ ];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "EXPRESSIONTYPE";  ];
+ ];
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessRuleExpression ;
+ rr:objectMap [
+rr:parentTriplesMap <#BusinessRuleExpressionMap>;
+ rr:joinCondition [ rr:child "EXPRESSIONIDENTIFIER" ; rr:parent "EXPRESSIONIDENTIFIER" ; ]
+ ];
+ ];
+
+ .
+
+ <#BusinessTermSynonymMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "BUSINESSTERMSYNONYM" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/BusinessTermSynonym/{BUSINESSRULEIDENTIFIER}"; rr:class ql:BusinessRule;];
+ 
+ 
+
+ .
+
+ <#BusinessRuleTypeMap> a rr:TriplesMap;
+ rr:logicalTable [ rr:tableName "BUSINESSRULETYPE" ];
+ rr:subjectMap [ rr:template "http://qlRDF.com/BusinessRuleType/{BUSINESSRULETYPECODE}"; rr:class ql:BusinessRule;];
+ rr:predicateObjectMap
+ [
+rr:predicate rdfs:label ; rr:objectMap [ rr:column "BUSINESSRULETYPEDESCRIPTION";  ];
+ ];
+
+ rr:predicateObjectMap
+ [
+ rr:predicate ql:hasBusinessRule ;
+ rr:objectMap [
+rr:parentTriplesMap <#BusinessRuleMap>;
+ rr:joinCondition [ rr:child "BUSINESSRULETYPECODE" ; rr:parent "BUSINESSRULETYPECODE" ; ]
+ ];
+ ];
+ 
+
+ .
+
+
+
+
+
+
