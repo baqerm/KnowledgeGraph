@@ -1,0 +1,2 @@
+ApplicationID,GitURL,GitVersion,DeploymentStartDate,DeploymentEndDate
+ApplicationID_1,GitURL_txt,GitVersion_num,DeploymentStartDate_date,DeploymentEndDate_date
