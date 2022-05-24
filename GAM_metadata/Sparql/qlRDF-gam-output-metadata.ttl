@@ -1,0 +1,99 @@
+<http://qlRDF.com/LoanInfo/loannumber>
+        a                               <http://qlRDF.com/LoanInfo> , <http://qlRDF.com/Identifier> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "rocketaccountid" , "gcid" ;
+        <http://qlRDF.com/AssetsBal>    "assets_balance"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://qlRDF.com/AssetsCashVal>
+                "assets_cash_value"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://qlRDF.com/BiweeklyPaymentFlag>
+                "biweekly_payment_flag" ;
+        <http://qlRDF.com/EsHomaVal>    "estimated_home_value"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://qlRDF.com/EscrowBal>    "current_escrow_balance"^^<http://www.w3.org/2001/XMLSchema#decimal> , "currentescrowbalance"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+        <http://qlRDF.com/Escrowed>     "escrowed" ;
+        <http://qlRDF.com/HOIProvider>  "hoi_provider" ;
+        <http://qlRDF.com/IsPrimaryBorrower>
+                "isprimaryborrower" ;
+        <http://qlRDF.com/LoanPurpose>  "loan_purpose" ;
+        <http://qlRDF.com/MonthlyPayment>
+                "current_monthly_mortgage_payment"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+        <http://qlRDF.com/MortgageBal>  "current_mortgage_balance"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+        <http://qlRDF.com/OrigCloseDt>  "original_close_date"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://qlRDF.com/TotalEscrowBal>
+                "currenttotalescrowbalance"^^<http://www.w3.org/2001/XMLSchema#decimal> , "current_total_escrow_balance"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+
+<http://qlRDF.com/Source/loannumber>
+        a                               <http://qlRDF.com/Amp> , <http://qlRDF.com/Personhub> , <http://qlRDF.com/Servicing> ;
+        <http://qlRDF.com/Identifies>   <http://qlRDF.com/Identifier/loannumber> , <http://qlRDF.com/LoanInfo/loannumber> ;
+        <http://qlRDF.com/hasAddressInfo>
+                <http://qlRDF.com/Address/loannumber> ;
+        <http://qlRDF.com/hasClientInfo>
+                <http://qlRDF.com/ClientInfo/loannumber> ;
+        <http://qlRDF.com/hasEmploymentInfo>
+                <http://qlRDF.com/Employment/loannumber> ;
+        <http://qlRDF.com/hasLoanInfo>  <http://qlRDF.com/LoanInfo/loannumber> ;
+        <http://qlRDF.com/hasPropertyInfo>
+                <http://qlRDF.com/PropertyInfo/loannumber> ;
+        <http://qlRDF.com/hasViableFlags>
+                <http://qlRDF.com/ViableFlag/loannumber> .
+
+<http://qlRDF.com/Identifier/loannumber>
+        a       <http://qlRDF.com/Identifier> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "peid" , "reltio_uri" , "rocketaccountid" , "gcid" , "personid"^^<http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://qlRDF.com/ViableFlag/loannumber>
+        a       <http://qlRDF.com/ViableFlag> ;
+        <http://qlRDF.com/CashoutViable>
+                "cashout_viable" ;
+        <http://qlRDF.com/LowerPymentViable>
+                "lower_payment_viable" ;
+        <http://qlRDF.com/ShortentermViable>
+                "shortenterm_viable" .
+
+<http://qlRDF.com/Address/loannumber>
+        a                               <http://qlRDF.com/Address> ;
+        <http://qlRDF.com/City>         "city" ;
+        <http://qlRDF.com/PropAddress>  "property_address" ;
+        <http://qlRDF.com/PropAddressLN2>
+                "address_line_3" ;
+        <http://qlRDF.com/State>        "state" ;
+        <http://qlRDF.com/Zip>          "zip_code" .
+
+<http://qlRDF.com/Employment/loannumber>
+        a                               <http://qlRDF.com/Employment> ;
+        <http://qlRDF.com/CurJob>       "current_job" ;
+        <http://qlRDF.com/EmployerName>
+                "employer_name" ;
+        <http://qlRDF.com/EmployerPhoneNum>
+                "employer_phone_number" ;
+        <http://qlRDF.com/IsCurJob>     "is_currentjob" ;
+        <http://qlRDF.com/JobTitle>     "job_title" ;
+        <http://qlRDF.com/JobType>      "job_type" ;
+        <http://qlRDF.com/MonthsOnJob>  "monthsonjob"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://qlRDF.com/StartDt>      "employer_start_date" , "employment_start_date"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://qlRDF.com/ClientInfo/loannumber>
+        a                              <http://qlRDF.com/ClientInfo> ;
+        <http://qlRDF.com/BirthDate>   "date_of_birth"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://qlRDF.com/HomePhoneNum>
+                "home_phone_number" ;
+        <http://qlRDF.com/MaritalStatus>
+                "married" ;
+        <http://qlRDF.com/Salary>      "yearly_income"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://qlRDF.com/VeternStat>  "is_veteran" , "veteran" ;
+        <http://qlRDF.com/WorkPhoneNum>
+                "work_phone_number" .
+
+<http://qlRDF.com/PropertyInfo/loannumber>
+        a                             <http://qlRDF.com/PropertyInfo> ;
+        <http://qlRDF.com/AnnualOwnerInsur>
+                "annual_homeowners_insurance"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+        <http://qlRDF.com/AnnualPropTax>
+                "annual_property_tax"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+        <http://qlRDF.com/Occupancy>  "occupancy" ;
+        <http://qlRDF.com/OrigOccupancyDt>
+                "original_occupancy_date"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://qlRDF.com/OrigPurPrice>
+                "original_purchase_price"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+        <http://qlRDF.com/PropType>   "property_type" ;
+        <http://qlRDF.com/YearBuilt>  "year_home_built"^^<http://www.w3.org/2001/XMLSchema#integer> .
