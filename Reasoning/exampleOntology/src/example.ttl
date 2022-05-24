@@ -1,0 +1,35 @@
+@prefix rr:    <http://www.w3.org/ns/r2rml#> .
+@prefix :      <http://qlRDF.com/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
+<http://qlRDF.com/Servicing/657>
+        a             :Serevicing ;
+        :Addr         "7311 CHRISTOPHER CIR" ;
+        :Dob          "10/2/65"^^xsd:dateTime ;
+        :FName        "Fred" ;
+        :LName        "Bond" ;
+        :LoanNumber   "657" ;
+        :Zip          "48307"^^xsd:int ;
+        :phoneNumber  "345" .
+
+<http://qlRDF.com/AMP/910>
+        a             :AMP ;
+        :Addr         "157 N BIRCH ST SPC 22" ;
+        :FName        "Mary" ;
+        :LName        "Wester" ;
+        :Zip          "7609"^^xsd:int ;
+        :hasLoan      "910" ;
+        :phoneNumber  "567" .
+
+<http://qlRDF.com/AMP/123>
+        a             :AMP ;
+        :Addr         "7311 CHRISTOPHER CIR" ;
+        :Dob          "10/2/65"^^xsd:dateTime ;
+        :FName        "Fred" ;
+        :LName        "Bond" ;
+        :Zip          "48307"^^xsd:int ;
+        :hasLoan      "123" ;
+        :phoneNumber  "345" .
